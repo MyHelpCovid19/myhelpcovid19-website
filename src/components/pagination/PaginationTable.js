@@ -5,18 +5,17 @@ const PaginationTable = ({
   per_page,
   total_data,
   handleClick,
-  current_page
+  current_page,
 }) => {
   let pageNumbers = [];
 
-  console.log(Math.ceil(total_data / per_page));
   for (let i = 1; i <= Math.ceil(total_data / per_page); i++) {
     pageNumbers.push(i);
   }
 
   return (
     <div>
-      <Pagination size="sm" aria-label="Page navigation example">
+      <Pagination size="sm" aria-label="Page navigation">
         <PaginationItem key={1} disabled={current_page === 1 ? true : false}>
           <PaginationLink first onClick={() => handleClick(1)} href="#">
             First

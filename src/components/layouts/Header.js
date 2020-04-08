@@ -10,7 +10,7 @@ import {
 } from 'reactstrap';
 
 import './Header.scss';
-import iconForWeb from '../../assets/images/logo512.png';
+import iconForWeb from '../../assets/images/logo192.png';
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,34 +19,32 @@ const Header = (props) => {
 
   return (
     <div>
-      <medium>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">
-            <img src={iconForWeb} alt="" />
-            MyHelpCovid19
-          </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/allpatients/">All Patients</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/livenewschannels/">Live News Channels</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/freecourses/">Free Courses</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/faqs/">FAQs</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </medium>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/">
+          <img src={iconForWeb} alt="" />
+          MyHelpCovid19
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/allpatients/">All Patients</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/livenewschannels/">Live News Channels</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/freecourses/">Free Courses</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/faqs/">FAQs</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
     </div>
   );
 };

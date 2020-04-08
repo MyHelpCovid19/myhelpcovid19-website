@@ -14,7 +14,6 @@ import './App.scss';
 import TableCovid19AllPatients from './tablecovid19/TableCovid19AllPatients';
 import LiveNewsChannels from './livenewschannels/LiveNewsChannels';
 import FreeCourses from './freecourses/FreeCourses';
-import iconForWeb from '../assets/images/logo512.png';
 
 const history = require('history').createBrowserHistory;
 
@@ -58,42 +57,78 @@ const App = () => {
                   path="/livenewschannels"
                   render={(props) => <LiveNewsChannels {...props} />}
                 />
+                <Redirect to="/IN" />
               </Switch>
             </div>
           )}
         />
       </Router>
       {/* Site footer */}
-      <footer class="site-footer">
+      <footer className="site-footer">
         <small>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12 col-md-6">
                 <h6>About</h6>
-                <p class="text-justify">
+                <p className="text-justify">
                   We are a group of dedicated volunteers who like to help people
                   by aggregating data from different sources and put it in{' '}
-                  <a href="myhelpcovid19.in">
-                    <i>myhelpcovid19.in</i>
+                  <a href="https://www.myhelpcovid19.info" target="_self">
+                    <i>myhelpcovid19.info</i>
                   </a>{' '}
-                  website. We are pulling the stats from api.covid19india.org
+                  website. We are pulling the stats from{' '}
+                  <i>
+                    <a
+                      href="https://api.covid19india.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      api.covid19india.org
+                    </a>
+                  </i>{' '}
                   and through Government Websites. Special thanks to all those
-                  involved in making the api.covid19india.org.
+                  involved in making{' '}
+                  <i>
+                    <a
+                      href="https://api.covid19india.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      api.covid19india.org
+                    </a>
+                  </i>
+                  . Logo from{' '}
+                  <i>
+                    <a
+                      href="https://icons8.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      https://icons8.com/
+                    </a>
+                  </i>
+                  .
                 </p>
               </div>
 
-              <div class="col-xs-6 col-md-3">
+              <div className="col-xs-6 col-md-3">
                 <h6>Government Websites</h6>
-                <ul class="footer-links">
+                <ul className="footer-links">
                   <li>
-                    <a href="https://www.mygov.in/covid-19">India</a>
+                    <a
+                      href="https://www.mygov.in/covid-19"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      India
+                    </a>
                   </li>
                 </ul>
               </div>
 
-              <div class="col-xs-6 col-md-3">
+              <div className="col-xs-6 col-md-3">
                 <h6>Quick Links</h6>
-                <ul class="footer-links">
+                <ul className="footer-links">
                   <li>
                     <a href="/IN/">Home</a>
                   </li>
@@ -112,15 +147,13 @@ const App = () => {
                 </ul>
               </div>
             </div>
-            <hr />
           </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-8 col-sm-6 col-xs-12">
+                <p className="copyright-text">
                   Lets all be resposible, stay at home and maintain social
-                  distance to prevent Coronavirus. With love myhelpcovid19.in{' '}
-                  <img height="35" src={iconForWeb} alt="" />
+                  distance to prevent Coronavirus.
                 </p>
               </div>
             </div>

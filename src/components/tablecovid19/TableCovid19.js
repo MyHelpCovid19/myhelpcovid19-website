@@ -1,13 +1,12 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import * as Icon from 'react-feather';
 import _ from 'lodash';
 
 import './TableCovid19.scss';
 
 const TableCovid19 = (props) => {
-  const { subdata, tablename } = props;
+  const { subdata } = props;
 
   return (
     <div className="table-responsive">

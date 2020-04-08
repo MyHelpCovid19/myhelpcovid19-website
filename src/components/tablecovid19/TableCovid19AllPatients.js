@@ -69,7 +69,7 @@ export default class TableCovid19AllPatients extends Component {
     const { perPage, totalData, currentPage, currentPatients } = this.state;
 
     return (
-      <div>
+      <div className="mb-4">
         <div className="text-muted my-2">
           <small>Covid-19 Patients List of India</small>
         </div>
