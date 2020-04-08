@@ -1,0 +1,12 @@
+.faq-layout {
+  font-size: 12px !important;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+  .faq-layout {
+    font-size: 12px !important;
+    font-weight: 400;
+    width: 100%;
+  }
+}
