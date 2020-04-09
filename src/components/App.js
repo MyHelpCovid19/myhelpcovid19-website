@@ -97,16 +97,6 @@ const App = () => {
                       api.covid19india.org
                     </a>
                   </i>
-                  . For data visualizations visit{' '}
-                  <i>
-                    <a
-                      href="https://covid19india.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      covid19india.org
-                    </a>
-                  </i>
                   . Logo from{' '}
                   <i>
                     <a

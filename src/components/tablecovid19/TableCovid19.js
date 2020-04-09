@@ -15,6 +15,7 @@ const TableCovid19 = (props) => {
     _.map(props.subdata, (subdata, idx) => {
       if (idx > 0) {
         givenData.push({
+          id: idx,
           state: subdata.state,
           deltaconfirmed: parseInt(subdata.deltaconfirmed),
           confirmed: parseInt(subdata.confirmed),
@@ -38,6 +39,13 @@ const TableCovid19 = (props) => {
   }, [props.subdata]);
 
   const columns = [
+    {
+      dataField: 'id',
+      text: '#',
+      sort: true,
+      footer: '',
+      hidden: idHidden(),
+    },
     {
       dataField: 'state',
       text: 'State/UT',
@@ -88,12 +96,9 @@ const TableCovid19 = (props) => {
     },
   ];
 
-  const defaultSorted = [
-    {
-      dataField: 'deltaconfirmed',
-      order: 'desc',
-    },
-  ];
+  function idHidden() {
+    return window.innerWidth <= 769 ? true : false;
+  }
 
   function newDF(cell) {
     if (cell > 0) return <span className="text-danger">{cell}</span>;
@@ -232,7 +237,6 @@ const TableCovid19 = (props) => {
                 striped
                 condensed
                 noDataIndication="No data ..."
-                defaultSorted={defaultSorted}
               />
             </div>
           )}
