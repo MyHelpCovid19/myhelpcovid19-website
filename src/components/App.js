@@ -76,7 +76,7 @@ const App = () => {
                   <a href="https://www.myhelpcovid19.info" target="_self">
                     <i>myhelpcovid19.info</i>
                   </a>{' '}
-                  website. We are pulling the stats from{' '}
+                  website. We are pulling stats from{' '}
                   <i>
                     <a
                       href="https://api.covid19india.org"
@@ -85,9 +85,9 @@ const App = () => {
                     >
                       api.covid19india.org
                     </a>
-                  </i>{' '}
-                  and through Government Websites. Special thanks to all those
-                  involved in making{' '}
+                  </i>
+                  , Government Websites and verifiable resource. Special thanks
+                  to all those involved in making{' '}
                   <i>
                     <a
                       href="https://api.covid19india.org"
@@ -95,6 +95,16 @@ const App = () => {
                       rel="noopener noreferrer"
                     >
                       api.covid19india.org
+                    </a>
+                  </i>
+                  . For data visualizations visit{' '}
+                  <i>
+                    <a
+                      href="https://covid19india.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      covid19india.org
                     </a>
                   </i>
                   . Logo from{' '}
@@ -152,7 +162,7 @@ const App = () => {
             <div className="row">
               <div className="col-md-8 col-sm-6 col-xs-12">
                 <p className="copyright-text">
-                  Lets all be resposible, stay at home and maintain social
+                  Lets all be responsible, stay at home and maintain social
                   distance to prevent Coronavirus.
                 </p>
               </div>

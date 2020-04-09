@@ -50,7 +50,7 @@ class LiveNewsChannels extends Component {
         currData: channelsLinks[currentDataIndex],
       });
     } catch (err) {
-      console.log(err);
+      this.setState((error) => (error = err));
     }
   }
 

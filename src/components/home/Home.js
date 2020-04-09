@@ -15,6 +15,7 @@ const Home = (props) => {
   const [fetched, setFetched] = useState(false);
   const [lastUpdated, setLastUpdated] = useState('');
   const [timeseries, setTimeseries] = useState([]);
+  const [error, setError] = useState();
 
   useEffect(() => {
     if (fetched === false) {
@@ -37,7 +38,7 @@ const Home = (props) => {
       // setStateDistrictWiseData(stateDistrictWiseResponse.data);
       setFetched(true);
     } catch (err) {
-      console.log(err);
+      setError(err);
     }
   };
 
@@ -46,11 +47,10 @@ const Home = (props) => {
       <div className="home-left">
         <div>
           <TotalCharts data={states} timeseries={timeseries} />
-
           {/* Last Updated Date */}
-          <div>
-            <small className="text-muted">
-              <span>Last Updated: </span>
+          <div className="text-muted">
+            <small>
+              <span>India covid-19 list updated </span>
               <span>
                 {isNaN(Date.parse(formatDate(lastUpdated)))
                   ? ''
@@ -66,11 +66,13 @@ const Home = (props) => {
               </span>
             </small>
           </div>
-          <TableCovid19
+          {/* <TableCovid19
             subdata={states}
             timeseries={timeseries}
             tablename={'State/UT'}
-          />
+          /> */}
+
+          {states.length > 0 ? <TableCovid19 subdata={states} /> : ''}
         </div>
       </div>
       <div className="home-right">

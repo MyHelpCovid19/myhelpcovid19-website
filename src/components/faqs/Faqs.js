@@ -16,9 +16,7 @@ const Faqs = () => {
   useEffect(() => {
     FirestoreService.getFaqList()
       .then((doc) => {
-        if (!doc.exists) {
-          console.log('No such document!');
-        } else {
+        if (doc.exists) {
           let faqs = [];
 
           Object.entries(doc.data().name).forEach(([key, value]) =>
@@ -29,7 +27,6 @@ const Faqs = () => {
         }
       })
       .catch((err) => {
-        console.log(err.message);
         setError(err);
       });
   }, []);

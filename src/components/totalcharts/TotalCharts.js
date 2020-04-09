@@ -115,7 +115,7 @@ const TotalCharts = (props) => {
     <div>
       <small>
         <div className="animated fadeIn">
-          <Row className="my-4">
+          <Row className="my-3">
             <Col xs="3" sm="3" lg="3" className="text-danger">
               <div>Confirmed</div>
               <h6>
@@ -173,8 +173,6 @@ const TotalCharts = (props) => {
             </Col>
 
             <Col xs="3" sm="3" lg="3" className="text-success">
-              {console.log(dailyActive)}
-              {console.log(dailyConfirmed)}
               <div>Recovered</div>
               <h6>
                 <small>
