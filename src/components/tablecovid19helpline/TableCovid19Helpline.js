@@ -97,7 +97,7 @@ const TableCovid19Helpline = (props) => {
       <div className="text-primary mb-4">
         <div>Central Helpline Number for corona-virus</div>
         <h6>&nbsp;</h6>
-        <h3>+91-11-23978046</h3>
+        <h3>+91-11-23978046, 1075</h3>
       </div>
       <div className="text-muted">
         <small>Indian Helpline Numbers for covid-19</small>
