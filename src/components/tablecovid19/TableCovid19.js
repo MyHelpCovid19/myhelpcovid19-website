@@ -20,7 +20,9 @@ const TableCovid19 = (props) => {
           deltaconfirmed: parseInt(subdata.deltaconfirmed),
           confirmed: parseInt(subdata.confirmed),
           active: parseInt(subdata.active),
+          deltarecovered: parseInt(subdata.deltarecovered),
           recovered: parseInt(subdata.recovered),
+          deltadeaths: parseInt(subdata.deltadeaths),
           deaths: parseInt(subdata.deaths),
         });
       } else {
@@ -29,7 +31,9 @@ const TableCovid19 = (props) => {
           deltaconfirmed: parseInt(subdata.deltaconfirmed),
           confirmed: parseInt(subdata.confirmed),
           active: parseInt(subdata.active),
+          deltarecovered: parseInt(subdata.deltarecovered),
           recovered: parseInt(subdata.recovered),
+          deltadeaths: parseInt(subdata.deltadeaths),
           deaths: parseInt(subdata.deaths),
         });
       }
@@ -54,19 +58,11 @@ const TableCovid19 = (props) => {
       footerFormatter: stateFF,
     },
     {
-      dataField: 'deltaconfirmed',
-      text: 'New',
-      sort: true,
-      headerFormatter: newHF,
-      footer: '',
-      footerFormatter: newFF,
-      formatter: newDF,
-    },
-    {
       dataField: 'confirmed',
       text: 'Confirmed',
       sort: true,
       headerFormatter: confirmedHF,
+      formatter: confirmedCF,
       footer: '',
       footerFormatter: confirmedFF,
     },
@@ -75,6 +71,7 @@ const TableCovid19 = (props) => {
       text: 'Active',
       sort: true,
       headerFormatter: activeHF,
+      formatter: activeCF,
       footer: '',
       footerFormatter: activeFF,
     },
@@ -83,6 +80,7 @@ const TableCovid19 = (props) => {
       text: 'Recovered',
       sort: true,
       headerFormatter: recoveredHF,
+      formatter: recoveredCF,
       footer: '',
       footerFormatter: recoveredFF,
     },
@@ -91,6 +89,7 @@ const TableCovid19 = (props) => {
       text: 'Deceased',
       sort: true,
       headerFormatter: deceasedHF,
+      formatter: deceasedCF,
       footer: '',
       footerFormatter: deceasedFF,
     },
@@ -98,51 +97,6 @@ const TableCovid19 = (props) => {
 
   function idHidden() {
     return window.innerWidth <= 769 ? true : false;
-  }
-
-  function newDF(cell) {
-    if (cell > 0) return <span className="text-danger">{cell}</span>;
-
-    return cell;
-  }
-
-  function stateFF() {
-    return total.state;
-  }
-
-  function newFF() {
-    return <span className="text-danger">{total.deltaconfirmed}</span>;
-  }
-
-  function confirmedFF() {
-    return total.confirmed;
-  }
-
-  function activeFF() {
-    return total.active;
-  }
-
-  function recoveredFF() {
-    return total.recovered;
-  }
-
-  function deceasedFF() {
-    return total.deaths;
-  }
-
-  function newHF() {
-    return (
-      <abbr
-        title="New"
-        className={`${window.innerWidth <= 769 ? 'text-danger' : ''}`}
-      >
-        {window.innerWidth <= 769
-          ? window.innerWidth <= 375
-            ? 'N'
-            : 'New'
-          : 'New'}
-      </abbr>
-    );
   }
 
   function confirmedHF() {
@@ -202,6 +156,129 @@ const TableCovid19 = (props) => {
             : 'Dcsd'
           : 'Deceased'}
       </abbr>
+    );
+  }
+
+  function confirmedCF(cell, row) {
+    return (
+      <span>
+        <span className="daily-data text-danger">
+          <i className="fas fa-arrow-up fa-xs"></i>
+          {row.deltaconfirmed}
+        </span>
+        {window.innerWidth <= 769 ? (
+          <div> {cell}</div>
+        ) : (
+          <span>{'   ' + cell}</span>
+        )}
+      </span>
+    );
+  }
+
+  function activeCF(cell, row) {
+    return (
+      <span>
+        <span className="daily-data">&nbsp;</span>
+        {window.innerWidth <= 769 ? <div> {cell}</div> : <span>{cell}</span>}
+      </span>
+    );
+  }
+
+  function recoveredCF(cell, row) {
+    return (
+      <span>
+        <span className="daily-data text-success">
+          <i className="fas fa-arrow-up fa-xs"></i>
+          {row.deltarecovered}
+        </span>
+        {window.innerWidth <= 769 ? (
+          <div> {cell}</div>
+        ) : (
+          <span>{'   ' + cell}</span>
+        )}
+      </span>
+    );
+  }
+
+  function deceasedCF(cell, row) {
+    return (
+      <span>
+        <span className="daily-data text-muted">
+          <i className="fas fa-arrow-up fa-xs"></i>
+          {row.deltadeaths}
+        </span>
+        {window.innerWidth <= 769 ? (
+          <div> {cell}</div>
+        ) : (
+          <span>{'   ' + cell}</span>
+        )}
+      </span>
+    );
+  }
+
+  function stateFF() {
+    return total.state;
+  }
+
+  function confirmedFF() {
+    return (
+      <span>
+        <span className="daily-data text-danger">
+          <i className="fas fa-arrow-up fa-xs"></i>
+          {total.deltaconfirmed}
+        </span>
+        {window.innerWidth <= 769 ? (
+          <div> {total.confirmed}</div>
+        ) : (
+          <span>{'   ' + total.confirmed}</span>
+        )}
+      </span>
+    );
+  }
+
+  function activeFF() {
+    return (
+      <span>
+        <span className="daily-data text-danger">&nbsp;</span>
+        {window.innerWidth <= 769 ? (
+          <div> {total.active}</div>
+        ) : (
+          <span>{' ' + total.active}</span>
+        )}
+      </span>
+    );
+  }
+
+  function recoveredFF() {
+    return (
+      <span>
+        <span className="daily-data text-success">
+          <i className="fas fa-arrow-up fa-xs"></i>
+          {total.deltarecovered}
+        </span>
+        {window.innerWidth <= 769 ? (
+          <div> {total.recovered}</div>
+        ) : (
+          <span>{'   ' + total.recovered}</span>
+        )}
+      </span>
+    );
+  }
+
+  function deceasedFF() {
+    // return total.deaths;
+    return (
+      <span>
+        <span className="daily-data text-muted">
+          <i className="fas fa-arrow-up fa-xs"></i>
+          {total.deltadeaths}
+        </span>
+        {window.innerWidth <= 769 ? (
+          <div> {total.deaths}</div>
+        ) : (
+          <span>{' ' + total.deaths}</span>
+        )}
+      </span>
     );
   }
 

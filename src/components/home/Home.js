@@ -47,17 +47,17 @@ const Home = (props) => {
       <div className="home-left">
         <div>
           <TotalCharts data={states} timeseries={timeseries} />
-          {/* Last Updated Date */}
+
           <div className="text-muted">
             <small>
-              <span>India covid-19 list updated </span>
+              <span>India covid19 list updated </span>
               <span>
                 {isNaN(Date.parse(formatDate(lastUpdated)))
                   ? ''
                   : formatDistance(
                       new Date(formatDate(lastUpdated)),
                       new Date()
-                    ) + ' ago, '}
+                    ) + ' ago,'}
               </span>
               <span>
                 {isNaN(Date.parse(formatDate(lastUpdated)))

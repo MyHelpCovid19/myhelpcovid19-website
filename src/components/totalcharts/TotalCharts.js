@@ -36,7 +36,7 @@ const TotalCharts = (props) => {
       let deltas = {};
 
       data.forEach((state, index) => {
-        if (index !== 0) {
+        if (index > 0) {
           confirmed += parseInt(state.confirmed);
           active += parseInt(state.active);
           recoveries += parseInt(state.recovered);
@@ -44,7 +44,7 @@ const TotalCharts = (props) => {
         } else {
           deltas = {
             confirmed: parseInt(state.deltaconfirmed),
-            deaths: parseInt(state.deltadeaths),
+            deceased: parseInt(state.deltadeaths),
             recovered: parseInt(state.deltarecovered),
           };
         }
