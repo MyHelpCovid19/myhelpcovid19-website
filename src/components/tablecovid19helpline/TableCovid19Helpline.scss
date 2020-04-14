@@ -1,5 +1,16 @@
 .covid-table-helpline {
-  margin: 1.5rem 0;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.app-btn-left {
+  float: left;
+  padding-right: 1rem;
+  color: #05496a;
+}
+
+.app-btn-right {
+  float: left;
+  color: #05496a;
 }
 
 @media screen and (max-width: 769px) {
