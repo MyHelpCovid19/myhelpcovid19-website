@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
-
+import { ArrowUp } from 'react-feather';
 import './TableCovid19.scss';
 
 const TableCovid19 = (props) => {
@@ -163,7 +163,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-danger">
-          <i className="fas fa-arrow-up fa-xs"></i>
+          <ArrowUp size={10} />
           {row.deltaconfirmed}
         </span>
         {window.innerWidth <= 769 ? (
@@ -188,7 +188,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-success">
-          <i className="fas fa-arrow-up fa-xs"></i>
+          <ArrowUp size={10} />
           {row.deltarecovered}
         </span>
         {window.innerWidth <= 769 ? (
@@ -204,7 +204,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-muted">
-          <i className="fas fa-arrow-up fa-xs"></i>
+          <ArrowUp size={10} />
           {row.deltadeaths}
         </span>
         {window.innerWidth <= 769 ? (
@@ -224,7 +224,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-danger">
-          <i className="fas fa-arrow-up fa-xs"></i>
+          <ArrowUp size={10} />
           {total.deltaconfirmed}
         </span>
         {window.innerWidth <= 769 ? (
@@ -253,7 +253,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-success">
-          <i className="fas fa-arrow-up fa-xs"></i>
+          <ArrowUp size={10} />
           {total.deltarecovered}
         </span>
         {window.innerWidth <= 769 ? (
@@ -270,7 +270,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-muted">
-          <i className="fas fa-arrow-up fa-xs"></i>
+          <ArrowUp size={10} />
           {total.deltadeaths}
         </span>
         {window.innerWidth <= 769 ? (

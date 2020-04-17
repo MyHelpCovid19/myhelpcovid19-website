@@ -1,6 +1,6 @@
 {
   "name": "myhelpcovid19-website",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -20,6 +20,8 @@
     "react-bootstrap-table2-paginator": "^2.1.2",
     "react-bootstrap-table2-toolkit": "^2.1.2",
     "react-dom": "^16.13.1",
+    "react-feather": "^2.0.4",
+    "react-infinite-scroll-component": "^5.0.4",
     "react-masonry-css": "^1.0.14",
     "react-moment": "^0.9.7",
     "react-pdf": "^4.1.0",

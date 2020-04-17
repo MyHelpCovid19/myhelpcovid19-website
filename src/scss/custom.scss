@@ -222,4 +222,10 @@ abbr[title] {
   text-decoration: none !important;
 }
 
+.btn.focus,
+.btn:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 @import '~bootstrap/scss/bootstrap.scss';
