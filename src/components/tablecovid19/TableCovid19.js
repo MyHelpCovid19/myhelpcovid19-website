@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
@@ -17,6 +18,7 @@ const TableCovid19 = (props) => {
         givenData.push({
           id: idx,
           state: subdata.state,
+          stateCode: subdata.statecode,
           deltaconfirmed: parseInt(subdata.deltaconfirmed),
           confirmed: parseInt(subdata.confirmed),
           active: parseInt(subdata.active),
@@ -54,44 +56,57 @@ const TableCovid19 = (props) => {
       dataField: 'state',
       text: 'State/UT',
       sort: true,
-      footer: '',
+      footer: 'India',
       footerFormatter: stateFF,
+      formatter: stateCF,
     },
     {
       dataField: 'confirmed',
       text: 'Confirmed',
       sort: true,
       headerFormatter: confirmedHF,
+      headerAlign: 'right',
       formatter: confirmedCF,
       footer: '',
       footerFormatter: confirmedFF,
+      align: 'right',
+      footerAlign: 'right',
     },
     {
       dataField: 'active',
       text: 'Active',
       sort: true,
       headerFormatter: activeHF,
+      headerAlign: 'right',
       formatter: activeCF,
       footer: '',
       footerFormatter: activeFF,
+      align: 'right',
+      footerAlign: 'right',
     },
     {
       dataField: 'recovered',
       text: 'Recovered',
       sort: true,
       headerFormatter: recoveredHF,
+      headerAlign: 'right',
       formatter: recoveredCF,
       footer: '',
       footerFormatter: recoveredFF,
+      align: 'right',
+      footerAlign: 'right',
     },
     {
       dataField: 'deaths',
       text: 'Deceased',
       sort: true,
       headerFormatter: deceasedHF,
+      headerAlign: 'right',
       formatter: deceasedCF,
       footer: '',
       footerFormatter: deceasedFF,
+      align: 'right',
+      footerAlign: 'right',
     },
   ];
 
@@ -159,15 +174,29 @@ const TableCovid19 = (props) => {
     );
   }
 
+  function stateCF(cell, row) {
+    return (
+      <span className="align-items-center">
+        <Link to={`/IN/${row.stateCode}`}>{cell}</Link>
+      </span>
+    );
+  }
+
   function confirmedCF(cell, row) {
     return (
       <span>
-        <span className="daily-data text-danger">
-          <ArrowUp size={10} />
-          {row.deltaconfirmed}
-        </span>
+        {row.deltaconfirmed !== 0 ? (
+          <span className="daily-data text-danger">
+            <ArrowUp size={10} />
+            {row.deltaconfirmed}
+          </span>
+        ) : window.innerWidth <= 769 ? (
+          <div>&nbsp;</div>
+        ) : (
+          ''
+        )}
         {window.innerWidth <= 769 ? (
-          <div> {cell}</div>
+          <div>{cell}</div>
         ) : (
           <span>{'   ' + cell}</span>
         )}
@@ -187,12 +216,18 @@ const TableCovid19 = (props) => {
   function recoveredCF(cell, row) {
     return (
       <span>
-        <span className="daily-data text-success">
-          <ArrowUp size={10} />
-          {row.deltarecovered}
-        </span>
+        {row.deltarecovered !== 0 ? (
+          <span className="daily-data text-success">
+            <ArrowUp size={10} />
+            {row.deltarecovered}
+          </span>
+        ) : window.innerWidth <= 769 ? (
+          <div>&nbsp;</div>
+        ) : (
+          ''
+        )}
         {window.innerWidth <= 769 ? (
-          <div> {cell}</div>
+          <div>{cell}</div>
         ) : (
           <span>{'   ' + cell}</span>
         )}
@@ -203,12 +238,18 @@ const TableCovid19 = (props) => {
   function deceasedCF(cell, row) {
     return (
       <span>
-        <span className="daily-data text-muted">
-          <ArrowUp size={10} />
-          {row.deltadeaths}
-        </span>
+        {row.deltadeaths !== 0 ? (
+          <span className="daily-data text-muted">
+            <ArrowUp size={10} />
+            {row.deltadeaths}
+          </span>
+        ) : window.innerWidth <= 769 ? (
+          <div>&nbsp;</div>
+        ) : (
+          ''
+        )}
         {window.innerWidth <= 769 ? (
-          <div> {cell}</div>
+          <div>{cell}</div>
         ) : (
           <span>{'   ' + cell}</span>
         )}
@@ -239,12 +280,8 @@ const TableCovid19 = (props) => {
   function activeFF() {
     return (
       <span>
-        <span className="daily-data text-danger">&nbsp;</span>
-        {window.innerWidth <= 769 ? (
-          <div> {total.active}</div>
-        ) : (
-          <span>{' ' + total.active}</span>
-        )}
+        {window.innerWidth <= 769 ? <div>&nbsp;</div> : ''}
+        <span>{total.active}</span>
       </span>
     );
   }
@@ -252,10 +289,16 @@ const TableCovid19 = (props) => {
   function recoveredFF() {
     return (
       <span>
-        <span className="daily-data text-success">
-          <ArrowUp size={10} />
-          {total.deltarecovered}
-        </span>
+        {total.deltarecovered !== 0 ? (
+          <span className="daily-data text-success">
+            <ArrowUp size={10} />
+            {total.deltarecovered}
+          </span>
+        ) : window.innerWidth <= 769 ? (
+          <div>&nbsp;</div>
+        ) : (
+          ''
+        )}
         {window.innerWidth <= 769 ? (
           <div> {total.recovered}</div>
         ) : (

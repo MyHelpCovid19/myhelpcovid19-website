@@ -11,7 +11,6 @@ import './Home.scss';
 
 const Home = (props) => {
   const [states, setStates] = useState([]);
-  // const [stateDistrictWiseData, setStateDistrictWiseData] = useState({});
   const [fetched, setFetched] = useState(false);
   const [lastUpdated, setLastUpdated] = useState('');
   const [timeseries, setTimeseries] = useState([]);
@@ -27,15 +26,11 @@ const Home = (props) => {
     try {
       const [response] = await Promise.all([
         axios.get('https://api.covid19india.org/data.json'),
-
-        // Segregate for showing only district data
-        axios.get('https://api.covid19india.org/state_district_wise.json'),
       ]);
 
       setStates(response.data.statewise);
       setTimeseries(response.data.cases_time_series);
       setLastUpdated(response.data.statewise[0].lastupdatedtime);
-      // setStateDistrictWiseData(stateDistrictWiseResponse.data);
       setFetched(true);
     } catch (err) {
       setError(err);
@@ -46,7 +41,7 @@ const Home = (props) => {
     <div className="covid-home">
       <div className="home-left">
         <div>
-          <TotalCharts data={states} timeseries={timeseries} />
+          <TotalCharts data={states[0]} timeseries={timeseries} />
 
           <div className="text-muted">
             <small>

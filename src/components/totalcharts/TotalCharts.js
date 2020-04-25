@@ -29,33 +29,23 @@ const TotalCharts = (props) => {
 
   useEffect(() => {
     const parseData = () => {
-      let confirmed = 0;
-      let active = 0;
-      let recoveries = 0;
-      let deaths = 0;
       let deltas = {};
 
-      data.forEach((state, index) => {
-        if (index > 0) {
-          confirmed += parseInt(state.confirmed);
-          active += parseInt(state.active);
-          recoveries += parseInt(state.recovered);
-          deaths += parseInt(state.deaths);
-        } else {
-          deltas = {
-            confirmed: parseInt(state.deltaconfirmed),
-            deceased: parseInt(state.deltadeaths),
-            recovered: parseInt(state.deltarecovered),
-          };
-        }
-      });
+      if (data !== undefined) {
+        deltas = {
+          confirmed: parseInt(data.deltaconfirmed),
+          deceased: parseInt(data.deltadeaths),
+          recovered: parseInt(data.deltarecovered),
+        };
 
-      setConfirmed(confirmed);
-      setActive(active);
-      setRecoveries(recoveries);
-      setDeaths(deaths);
-      setDeltas(deltas);
+        setConfirmed(data.confirmed);
+        setActive(data.active);
+        setRecoveries(data.recovered);
+        setDeaths(data.deaths);
+        setDeltas(deltas);
+      }
     };
+
     parseData();
   }, [data]);
 

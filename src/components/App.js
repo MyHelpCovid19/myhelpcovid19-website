@@ -14,6 +14,7 @@ import './App.scss';
 import TableCovid19AllPatients from './tablecovid19/TableCovid19AllPatients';
 import LiveNewsChannels from './livenewschannels/LiveNewsChannels';
 import FreeCourses from './freecourses/FreeCourses';
+import StateGovtHome from './stategovtdata/StateGovtHome';
 
 const history = require('history').createBrowserHistory;
 
@@ -39,8 +40,8 @@ const App = () => {
                 />
                 <Route
                   exact
-                  path="/IN/:id"
-                  render={(props) => <Home {...props} />}
+                  path="/IN/:stateCode"
+                  render={(props) => <StateGovtHome {...props} />}
                 />
                 <Route
                   exact

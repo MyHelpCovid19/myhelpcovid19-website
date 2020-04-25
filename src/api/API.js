@@ -20,3 +20,7 @@ export const getCoursesAfter = async (pagesize, source, cursor) => {
       source
   );
 };
+
+export const getStateData = async (stateCode) => {
+  return await axios.get(apiUrl + '/state?code=' + stateCode);
+};

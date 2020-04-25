@@ -1,0 +1,41 @@
+.covid-state {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 2rem;
+
+  .state-left,
+  .state-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .state-left {
+    margin-right: 0 2.5rem;
+    width: 35rem;
+  }
+
+  .state-right {
+    margin: 0 2.5rem;
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 375px) and (max-width: 769px) and (max-width: 1024px) {
+  .covid-state {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+
+    .state-left,
+    .state-right {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+  }
+}

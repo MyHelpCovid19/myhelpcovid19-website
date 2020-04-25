@@ -10,10 +10,10 @@ const months = {
   '09': 'Sep',
   '10': 'Oct',
   '11': 'Nov',
-  '12': 'Dec'
+  '12': 'Dec',
 };
 
-export const formatDate = unformattedDate => {
+export const formatDate = (unformattedDate) => {
   const day = unformattedDate.slice(0, 2);
   const month = unformattedDate.slice(3, 5);
   const year = unformattedDate.slice(6, 10);
@@ -21,7 +21,7 @@ export const formatDate = unformattedDate => {
   return `${year}-${month}-${day}T${time}+05:30`;
 };
 
-export const formatDateAbsolute = unformattedDate => {
+export const formatDateAbsolute = (unformattedDate) => {
   const day = unformattedDate.slice(0, 2);
   const month = unformattedDate.slice(3, 5);
   const time = unformattedDate.slice(11);
