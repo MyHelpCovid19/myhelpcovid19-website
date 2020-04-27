@@ -2,6 +2,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/analytics';
+import 'firebase/performance';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -17,6 +18,7 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+firebase.performance();
 
 const db = firebase.firestore();
 

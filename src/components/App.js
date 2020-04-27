@@ -68,9 +68,9 @@ const App = () => {
       <footer className="site-footer">
         <small>
           <div className="container">
-            <div className="row">
+            <div className="row mb-3">
               <div className="col-sm-12 col-md-6">
-                <h6>About</h6>
+                <h6>About Us</h6>
                 <p className="text-justify">
                   We are a group of dedicated volunteers who like to help people
                   by aggregating data from different sources and put it in{' '}
@@ -110,6 +110,13 @@ const App = () => {
                   </i>
                   .
                 </p>
+                <h6>Contact Us</h6>
+                <a
+                  href="https://www.facebook.com/myhelpcovid19/"
+                  target=" _blank"
+                >
+                  Contact us at <i className="fab fa-facebook-square fa-lg"></i>
+                </a>
               </div>
 
               <div className="col-xs-6 col-md-3">
@@ -121,8 +128,30 @@ const App = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      India
+                      India MyGov.in
                     </a>
+                  </li>
+                </ul>
+
+                <h6>MyHelpCovid19 Social</h6>
+                <ul className="footer-links">
+                  <li>
+                    <h1>
+                      <a
+                        href="https://www.facebook.com/myhelpcovid19/"
+                        target=" _blank"
+                      >
+                        <i className="fab fa-facebook-square"></i>
+                      </a>
+                      <span>
+                        <a
+                          href="https://www.instagram.com/myhelpcovid19"
+                          target=" _blank"
+                        >
+                          <i className="fab fa-instagram ml-3"></i>
+                        </a>
+                      </span>
+                    </h1>
                   </li>
                 </ul>
               </div>
@@ -149,10 +178,11 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="container">
+
+          <div className="container mb-3">
             <div className="row">
               <div className="col-md-8 col-sm-6 col-xs-12">
-                <p className="copyright-text">
+                <p className="copyright-text font-weight-bold">
                   Lets all be responsible, stay at home and maintain social
                   distance to prevent Coronavirus.
                 </p>

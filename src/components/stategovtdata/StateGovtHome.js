@@ -8,7 +8,7 @@ import StateGovtDetails from './StateGovtDetails';
 import TotalCharts from '../totalcharts/TotalCharts';
 
 import { formatDate, formatDateAbsolute } from '../../helpers/date-utils';
-import { formatDistance, startOfDecade } from 'date-fns';
+import { formatDistance } from 'date-fns';
 import { STATE_CODES } from '../../constants/constants';
 import { parseStateTimeseries } from '../../helpers/common-utils';
 

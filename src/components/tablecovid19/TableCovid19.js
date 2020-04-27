@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
-import { ArrowUp } from 'react-feather';
 import './TableCovid19.scss';
 
 const TableCovid19 = (props) => {
@@ -187,7 +186,7 @@ const TableCovid19 = (props) => {
       <span>
         {row.deltaconfirmed !== 0 ? (
           <span className="daily-data text-danger">
-            <ArrowUp size={10} />
+            <i className="fas fa-arrow-up fa-xs" />
             {row.deltaconfirmed}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -218,7 +217,7 @@ const TableCovid19 = (props) => {
       <span>
         {row.deltarecovered !== 0 ? (
           <span className="daily-data text-success">
-            <ArrowUp size={10} />
+            <i className="fas fa-arrow-up fa-xs" />
             {row.deltarecovered}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -240,7 +239,7 @@ const TableCovid19 = (props) => {
       <span>
         {row.deltadeaths !== 0 ? (
           <span className="daily-data text-muted">
-            <ArrowUp size={10} />
+            <i className="fas fa-arrow-up fa-xs" />
             {row.deltadeaths}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -265,7 +264,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-danger">
-          <ArrowUp size={10} />
+          <i className="fas fa-arrow-up fa-xs" />
           {total.deltaconfirmed}
         </span>
         {window.innerWidth <= 769 ? (
@@ -291,7 +290,7 @@ const TableCovid19 = (props) => {
       <span>
         {total.deltarecovered !== 0 ? (
           <span className="daily-data text-success">
-            <ArrowUp size={10} />
+            <i className="fas fa-arrow-up fa-xs" />
             {total.deltarecovered}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -313,7 +312,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-muted">
-          <ArrowUp size={10} />
+          <i className="fas fa-arrow-up fa-xs" />
           {total.deltadeaths}
         </span>
         {window.innerWidth <= 769 ? (

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
-import { ArrowUp } from 'react-feather';
 import _ from 'lodash';
 import './StateGovtTable.scss';
 
@@ -112,7 +111,7 @@ const StateGovtTable = (props) => {
       <span>
         {row.deltaconfirmed !== 0 ? (
           <span className="daily-data text-danger">
-            <ArrowUp size={10} />
+            <i className="fas fa-arrow-up fa-xs" />
             {row.deltaconfirmed}
           </span>
         ) : window.innerWidth <= 769 ? (
