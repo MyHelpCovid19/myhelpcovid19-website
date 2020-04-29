@@ -6,6 +6,13 @@ import {
   Redirect,
 } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebookSquare,
+  faInstagramSquare,
+} from '@fortawesome/free-brands-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+
 import Header from './layouts/Header';
 import Home from './home/Home';
 import Faqs from './faqs/Faqs';
@@ -16,12 +23,10 @@ import LiveNewsChannels from './livenewschannels/LiveNewsChannels';
 import FreeCourses from './freecourses/FreeCourses';
 import StateGovtHome from './stategovtdata/StateGovtHome';
 
-const history = require('history').createBrowserHistory;
-
 const App = () => {
   return (
     <div className="App">
-      <Router history={history}>
+      <Router>
         <Route
           render={({ location }) => (
             <div>
@@ -64,21 +69,22 @@ const App = () => {
           )}
         />
       </Router>
+
       {/* Site footer */}
       <footer className="site-footer">
-        <small>
-          <div className="container">
-            <div className="row mb-3">
-              <div className="col-sm-12 col-md-6">
-                <h6>About Us</h6>
+        <div className="container">
+          <div className="row mb-3">
+            <div className="col-sm-12 col-md-6">
+              <h6>About Us</h6>
+              <small>
                 <p className="text-justify">
                   We are a group of dedicated volunteers who like to help people
                   by aggregating data from different sources and put it in{' '}
                   <a href="https://www.myhelpcovid19.info" target="_self">
-                    <i>myhelpcovid19.info</i>
+                    <span>myhelpcovid19.info</span>
                   </a>{' '}
                   website. We are pulling stats from{' '}
-                  <i>
+                  <span>
                     <a
                       href="https://api.covid19india.org"
                       target="_blank"
@@ -86,10 +92,10 @@ const App = () => {
                     >
                       api.covid19india.org
                     </a>
-                  </i>
+                  </span>
                   , Government Websites and verifiable resource. Special thanks
                   to all those involved in making{' '}
-                  <i>
+                  <span>
                     <a
                       href="https://api.covid19india.org"
                       target="_blank"
@@ -97,9 +103,9 @@ const App = () => {
                     >
                       api.covid19india.org
                     </a>
-                  </i>
+                  </span>
                   . Logo from{' '}
-                  <i>
+                  <span>
                     <a
                       href="https://icons8.com/"
                       target="_blank"
@@ -107,7 +113,7 @@ const App = () => {
                     >
                       https://icons8.com/
                     </a>
-                  </i>
+                  </span>
                   .
                 </p>
                 <h6>Contact Us</h6>
@@ -115,12 +121,15 @@ const App = () => {
                   href="https://www.facebook.com/myhelpcovid19/"
                   target=" _blank"
                 >
-                  Contact us at <i className="fab fa-facebook-square fa-lg"></i>
+                  Click here to contact us at{' '}
+                  <FontAwesomeIcon icon={faFacebookSquare} />
                 </a>
-              </div>
+              </small>
+            </div>
 
-              <div className="col-xs-6 col-md-3">
-                <h6>Government Websites</h6>
+            <div className="col-xs-6 col-md-3">
+              <h6>Government Websites</h6>
+              <small>
                 <ul className="footer-links">
                   <li>
                     <a
@@ -132,35 +141,49 @@ const App = () => {
                     </a>
                   </li>
                 </ul>
-
                 <h6>MyHelpCovid19 Social</h6>
+                Like <FontAwesomeIcon icon={faThumbsUp} /> Us At
                 <ul className="footer-links">
                   <li>
-                    <h1>
-                      <a
-                        href="https://www.facebook.com/myhelpcovid19/"
-                        target=" _blank"
+                    <button
+                      className="btn btn-social-icon"
+                      aria-label="Facebook Page"
+                      onClick={() =>
+                        window.open(
+                          'https://www.facebook.com/myhelpcovid19/',
+                          '_blank'
+                        )
+                      }
+                    >
+                      <FontAwesomeIcon icon={faFacebookSquare} size="2x" />
+                    </button>
+                    <span>
+                      <button
+                        className="btn btn-social-icon"
+                        aria-label="Instagram Page"
+                        onClick={() =>
+                          window.open(
+                            'https://www.instagram.com/myhelpcovid19',
+                            '_blank'
+                          )
+                        }
                       >
-                        <i className="fab fa-facebook-square"></i>
-                      </a>
-                      <span>
-                        <a
-                          href="https://www.instagram.com/myhelpcovid19"
-                          target=" _blank"
-                        >
-                          <i className="fab fa-instagram ml-3"></i>
-                        </a>
-                      </span>
-                    </h1>
+                        <FontAwesomeIcon icon={faInstagramSquare} size="2x" />
+                      </button>
+                    </span>
                   </li>
                 </ul>
-              </div>
+              </small>
+            </div>
 
-              <div className="col-xs-6 col-md-3">
-                <h6>Quick Links</h6>
+            <div className="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <small>
                 <ul className="footer-links">
                   <li>
-                    <a href="/IN/">Home</a>
+                    <a href="/IN/" className="pr-3">
+                      Home Page
+                    </a>
                   </li>
                   <li>
                     <a href="/allpatients/">Patients Data</a>
@@ -169,17 +192,21 @@ const App = () => {
                     <a href="/livenewschannels/">Live News Channels</a>
                   </li>
                   <li>
-                    <a href="/freecourses/">Free Educational Resources</a>
+                    <a href="/freecourses/">Free Courses</a>
                   </li>
                   <li>
-                    <a href="/faqs/">FAQs</a>
+                    <a href="/faqs/" className="pr-5">
+                      FAQs
+                    </a>
                   </li>
                 </ul>
-              </div>
+              </small>
             </div>
           </div>
+        </div>
 
-          <div className="container mb-3">
+        <div className="container mb-3">
+          <small>
             <div className="row">
               <div className="col-md-8 col-sm-6 col-xs-12">
                 <p className="copyright-text font-weight-bold">
@@ -188,8 +215,8 @@ const App = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </small>
+          </small>
+        </div>
       </footer>
     </div>
   );

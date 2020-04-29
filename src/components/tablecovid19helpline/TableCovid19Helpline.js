@@ -56,13 +56,13 @@ const TableCovid19Helpline = (props) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Click Here
+        Download PDF Here
       </a>
     );
   }
 
   function nameFF() {
-    return <small>Download PDF of Helplines</small>;
+    return 'Helpline Source';
   }
 
   const MySearch = (props) => {

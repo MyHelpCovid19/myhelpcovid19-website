@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import './TableCovid19.scss';
@@ -186,7 +189,7 @@ const TableCovid19 = (props) => {
       <span>
         {row.deltaconfirmed !== 0 ? (
           <span className="daily-data text-danger">
-            <i className="fas fa-arrow-up fa-xs" />
+            <FontAwesomeIcon icon={faArrowUp} size="xs" />
             {row.deltaconfirmed}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -217,7 +220,7 @@ const TableCovid19 = (props) => {
       <span>
         {row.deltarecovered !== 0 ? (
           <span className="daily-data text-success">
-            <i className="fas fa-arrow-up fa-xs" />
+            <FontAwesomeIcon icon={faArrowUp} size="xs" />
             {row.deltarecovered}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -239,7 +242,7 @@ const TableCovid19 = (props) => {
       <span>
         {row.deltadeaths !== 0 ? (
           <span className="daily-data text-muted">
-            <i className="fas fa-arrow-up fa-xs" />
+            <FontAwesomeIcon icon={faArrowUp} size="xs" />
             {row.deltadeaths}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -264,7 +267,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-danger">
-          <i className="fas fa-arrow-up fa-xs" />
+          <FontAwesomeIcon icon={faArrowUp} size="xs" />
           {total.deltaconfirmed}
         </span>
         {window.innerWidth <= 769 ? (
@@ -290,7 +293,7 @@ const TableCovid19 = (props) => {
       <span>
         {total.deltarecovered !== 0 ? (
           <span className="daily-data text-success">
-            <i className="fas fa-arrow-up fa-xs" />
+            <FontAwesomeIcon icon={faArrowUp} size="xs" />
             {total.deltarecovered}
           </span>
         ) : window.innerWidth <= 769 ? (
@@ -312,7 +315,7 @@ const TableCovid19 = (props) => {
     return (
       <span>
         <span className="daily-data text-muted">
-          <i className="fas fa-arrow-up fa-xs" />
+          <FontAwesomeIcon icon={faArrowUp} size="xs" />
           {total.deltadeaths}
         </span>
         {window.innerWidth <= 769 ? (
@@ -339,6 +342,7 @@ const TableCovid19 = (props) => {
           ref={(n) => (input = n)}
           placeholder="Search"
           onInput={handleClick}
+          name="Search Table"
         />
       </div>
     );

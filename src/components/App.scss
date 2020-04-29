@@ -79,54 +79,25 @@ body {
   background-repeat: no-repeat;
 }
 
-.fa-instagram {
-  color: transparent;
-  background: -webkit-radial-gradient(
-    30% 107%,
-    circle,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
-  background: -o-radial-gradient(
-    30% 107%,
-    circle,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
-  background: radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
-  background: -webkit-radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
+.fa-instagram-square {
+  color: #3b5998;
+}
+
+.btn-social-icon {
+  border: none;
+  padding: 0 0.5rem 0 0 !important;
 }
 
 @media (max-width: 991px) {
   .site-footer [class^='col-'] {
     margin-bottom: 0.5rem;
+    line-height: 1.8rem;
   }
 }
 @media (max-width: 769px) {
   .site-footer {
     padding-bottom: 0;
+    line-height: 1.8rem;
 
     .copyright-text {
       text-align: center;

@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+
 import './StateGovtTable.scss';
 
 const StateGovtTable = (props) => {
@@ -111,7 +114,7 @@ const StateGovtTable = (props) => {
       <span>
         {row.deltaconfirmed !== 0 ? (
           <span className="daily-data text-danger">
-            <i className="fas fa-arrow-up fa-xs" />
+            <FontAwesomeIcon icon={faArrowUp} size="xs" />
             {row.deltaconfirmed}
           </span>
         ) : window.innerWidth <= 769 ? (

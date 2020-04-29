@@ -9,7 +9,7 @@ import TableCovid19Helpline from '../tablecovid19helpline/TableCovid19Helpline';
 
 import './Home.scss';
 
-const Home = (props) => {
+const Home = () => {
   const [states, setStates] = useState([]);
   const [fetched, setFetched] = useState(false);
   const [lastUpdated, setLastUpdated] = useState('');
