@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
-import _ from 'lodash';
+import map from 'lodash/map';
+import get from 'lodash/get';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,8 +21,8 @@ const StateGovtTable = (props) => {
       setTotal(props.total);
 
       let districts = [];
-      _.map(props.subdata, (district) => {
-        const helpline = _.get(props.helplines, district.district);
+      map(props.subdata, (district) => {
+        const helpline = get(props.helplines, district.district);
         district['helpline'] = helpline !== undefined ? helpline : '';
         districts.push(district);
       });
@@ -113,26 +114,54 @@ const StateGovtTable = (props) => {
     return (
       <span>
         {row.deltaconfirmed !== 0 ? (
-          <span className="daily-data text-danger">
-            <FontAwesomeIcon icon={faArrowUp} size="xs" />
-            {row.deltaconfirmed}
-          </span>
-        ) : window.innerWidth <= 769 ? (
-          <div>&nbsp;</div>
+          window.innerWidth <= 769 ? (
+            <div>
+              {cell}
+              <div className="daily-data text-danger font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltaconfirmed}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <span className="daily-data text-danger font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltaconfirmed}
+              </span>
+              <span> {cell}</span>
+            </div>
+          )
         ) : (
-          ''
-        )}
-        {window.innerWidth <= 769 ? (
-          <div>{cell}</div>
-        ) : (
-          <span>{'   ' + cell}</span>
+          <div>
+            <span>{cell}</span>
+          </div>
         )}
       </span>
     );
   }
 
   function confirmedFF() {
-    return <span>{total.confirmed}</span>;
+    return (
+      <span>
+        {window.innerWidth <= 769 ? (
+          <span>
+            {total.confirmed}{' '}
+            <div className="daily-data text-danger">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltaconfirmed}
+            </div>
+          </span>
+        ) : (
+          <div>
+            <span className="daily-data text-danger">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltaconfirmed}
+            </span>
+            {'   ' + total.confirmed}
+          </div>
+        )}
+      </span>
+    );
   }
 
   function helplineFF() {

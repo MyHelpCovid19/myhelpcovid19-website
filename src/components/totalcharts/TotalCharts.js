@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Row, Col } from 'reactstrap';
 
 import { Line, LineChart } from 'recharts';
-import _ from 'lodash';
+import map from 'lodash/map';
 
 import './TotalCharts.scss';
 
@@ -56,7 +56,7 @@ const TotalCharts = (props) => {
     const dRecovered = [];
     const dDeceased = [];
 
-    _.map(timeseries, (subdata, idx) => {
+    map(timeseries, (subdata, idx) => {
       dConfirmed.push({
         date: subdata.date,
         value: isNaN(parseInt(subdata.dailyconfirmed))
@@ -65,7 +65,7 @@ const TotalCharts = (props) => {
       });
     });
 
-    _.map(timeseries, (subdata, idx) => {
+    map(timeseries, (subdata, idx) => {
       dRecovered.push({
         date: subdata.date,
         value: isNaN(parseInt(subdata.dailyrecovered))
@@ -74,7 +74,7 @@ const TotalCharts = (props) => {
       });
     });
 
-    _.map(timeseries, (subdata, idx) => {
+    map(timeseries, (subdata, idx) => {
       dDeceased.push({
         date: subdata.date,
         value: isNaN(parseInt(subdata.dailydeceased))
@@ -83,7 +83,7 @@ const TotalCharts = (props) => {
       });
     });
 
-    _.map(timeseries, (subdata, idx) => {
+    map(timeseries, (subdata, idx) => {
       dActive.push({
         date: subdata.date,
         value:
@@ -104,7 +104,7 @@ const TotalCharts = (props) => {
   return (
     <div>
       <small>
-        <div className="animated fadeIn">
+        <div className="animated">
           <Row className="my-3">
             <Col xs="3" sm="3" lg="3" className="text-danger">
               <div>Confirmed</div>

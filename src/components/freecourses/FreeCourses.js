@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
-import FromUdemy from './FromUdemy';
+const FromUdemy = lazy(() => import('./FromUdemy'));
 
 const FreeCourses = () => {
   return (
     <div className="mt-3">
-      <FromUdemy />
+      <Suspense fallback={<div>Loading...</div>}>
+        <FromUdemy />
+      </Suspense>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import _ from 'lodash';
+import map from 'lodash';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -70,7 +70,7 @@ const FromUdemy = () => {
           <div className="container mt-3">
             <small>
               <div className="row">
-                {_.map(courses, (item, idx) => {
+                {map.map(courses, (item, idx) => {
                   return (
                     <div
                       key={idx}

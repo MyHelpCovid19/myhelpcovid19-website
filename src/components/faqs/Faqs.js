@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Container } from 'reactstrap';
-import FaqLayout from '../faqlayout/FaqLayout';
+
 import * as FirestoreService from '../../services/firebase';
 
 import './Faqs.scss';
+
+const FaqLayout = lazy(() => import('../faqlayout/FaqLayout'));
 
 const Faqs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -36,7 +38,9 @@ const Faqs = () => {
       {faqs.length > 0 ? (
         <div>
           <div className="mb-2">FAQs About Us:</div>
-          <FaqLayout faqdata={faqs} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <FaqLayout faqdata={faqs} />
+          </Suspense>
         </div>
       ) : (
         ''

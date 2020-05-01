@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 import * as FirestoreService from '../../services/firebase';
 
-import _ from 'lodash';
-import LiveNewsChannelsMasonry from './LiveNewsChannelsMasonry';
+import map from 'lodash/map';
+
+const LiveNewsChannelsMasonry = lazy(() => import('./LiveNewsChannelsMasonry'));
 
 class LiveNewsChannels extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class LiveNewsChannels extends Component {
       });
 
       let languages = [];
-      _.map(channelsLinks, (channels, idx) => {
+      map(channelsLinks, (channels, idx) => {
         let data = {
           label: channels.name,
           value: channels.name,
@@ -87,7 +88,9 @@ class LiveNewsChannels extends Component {
         />
 
         {this.state.currData !== '' ? (
-          <LiveNewsChannelsMasonry data={this.state.currData} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <LiveNewsChannelsMasonry data={this.state.currData} />
+          </Suspense>
         ) : (
           ''
         )}

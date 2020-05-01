@@ -29,7 +29,7 @@ function FaqLayout(props) {
     <Container className="faq-layout">
       {faqs.map(function (item, index) {
         return (
-          <Card key={index} className="fadeInUp">
+          <Card key={index}>
             <CardBody>
               <CardTitle
                 onClick={() => {
@@ -57,35 +57,6 @@ function FaqLayout(props) {
         );
       })}
     </Container>
-
-    // <div>
-    //   {faq.map((faq, index) => {
-    //     return (
-    //       <Card key={index} className="fadeInUp">
-    //         <CardBody>
-    //           <CardTitle id={'toggler' + index}>
-    //             <span>
-    //               <h6>
-    //                 Q. {faq.question}
-    //                 <span className="float-right">
-    //                   {('#toggler' + index).isOpen() ? '+' : '-'}
-    //                 </span>
-    //               </h6>
-    //             </span>
-    //           </CardTitle>
-    //           <UncontrolledCollapse toggler={'#toggler' + index}>
-    //             <CardText>
-    //               Ans. <span>{faq.answer}</span>
-    //             </CardText>
-    //             <CardText>
-    //               <small className="text-muted">{faq.source}</small>
-    //             </CardText>
-    //           </UncontrolledCollapse>
-    //         </CardBody>
-    //       </Card>
-    //     );
-    //   })}
-    // </div>
   );
 }
 

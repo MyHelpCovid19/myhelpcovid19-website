@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import _ from 'lodash';
+import map from 'lodash/map';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,7 +15,7 @@ const TableCovid19 = (props) => {
   useEffect(() => {
     let givenData = [];
 
-    _.map(props.subdata, (subdata, idx) => {
+    map(props.subdata, (subdata, idx) => {
       if (idx > 0) {
         givenData.push({
           id: idx,
@@ -188,50 +188,61 @@ const TableCovid19 = (props) => {
     return (
       <span>
         {row.deltaconfirmed !== 0 ? (
-          <span className="daily-data text-danger">
-            <FontAwesomeIcon icon={faArrowUp} size="xs" />
-            {row.deltaconfirmed}
-          </span>
-        ) : window.innerWidth <= 769 ? (
-          <div>&nbsp;</div>
+          window.innerWidth <= 769 ? (
+            <div>
+              {cell}
+              <div className="daily-data text-danger font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltaconfirmed}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <span className="daily-data text-danger font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltaconfirmed}
+              </span>
+              <span> {cell}</span>
+            </div>
+          )
         ) : (
-          ''
-        )}
-        {window.innerWidth <= 769 ? (
-          <div>{cell}</div>
-        ) : (
-          <span>{'   ' + cell}</span>
+          <div>
+            <span>{cell}</span>
+          </div>
         )}
       </span>
     );
   }
 
-  function activeCF(cell, row) {
-    return (
-      <span>
-        <span className="daily-data">&nbsp;</span>
-        {window.innerWidth <= 769 ? <div> {cell}</div> : <span>{cell}</span>}
-      </span>
-    );
+  function activeCF(cell) {
+    return <span>{cell}</span>;
   }
 
   function recoveredCF(cell, row) {
     return (
       <span>
         {row.deltarecovered !== 0 ? (
-          <span className="daily-data text-success">
-            <FontAwesomeIcon icon={faArrowUp} size="xs" />
-            {row.deltarecovered}
-          </span>
-        ) : window.innerWidth <= 769 ? (
-          <div>&nbsp;</div>
+          window.innerWidth <= 769 ? (
+            <div>
+              {cell}
+              <div className="daily-data text-success font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltarecovered}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <span className="daily-data text-success font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltarecovered}
+              </span>
+              <span> {cell}</span>
+            </div>
+          )
         ) : (
-          ''
-        )}
-        {window.innerWidth <= 769 ? (
-          <div>{cell}</div>
-        ) : (
-          <span>{'   ' + cell}</span>
+          <div>
+            <span>{cell}</span>
+          </div>
         )}
       </span>
     );
@@ -241,19 +252,27 @@ const TableCovid19 = (props) => {
     return (
       <span>
         {row.deltadeaths !== 0 ? (
-          <span className="daily-data text-muted">
-            <FontAwesomeIcon icon={faArrowUp} size="xs" />
-            {row.deltadeaths}
-          </span>
-        ) : window.innerWidth <= 769 ? (
-          <div>&nbsp;</div>
+          window.innerWidth <= 769 ? (
+            <div>
+              {cell}
+              <div className="daily-data text-muted font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltadeaths}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <span className="daily-data text-muted font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltadeaths}
+              </span>
+              <span> {cell}</span>
+            </div>
+          )
         ) : (
-          ''
-        )}
-        {window.innerWidth <= 769 ? (
-          <div>{cell}</div>
-        ) : (
-          <span>{'   ' + cell}</span>
+          <div>
+            <span>{cell}</span>
+          </div>
         )}
       </span>
     );
@@ -266,62 +285,74 @@ const TableCovid19 = (props) => {
   function confirmedFF() {
     return (
       <span>
-        <span className="daily-data text-danger">
-          <FontAwesomeIcon icon={faArrowUp} size="xs" />
-          {total.deltaconfirmed}
-        </span>
         {window.innerWidth <= 769 ? (
-          <div> {total.confirmed}</div>
+          <span>
+            {total.confirmed}{' '}
+            <div className="daily-data text-danger">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltaconfirmed}
+            </div>
+          </span>
         ) : (
-          <span>{'   ' + total.confirmed}</span>
+          <div>
+            <span className="daily-data text-danger">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltaconfirmed}
+            </span>
+            {'   ' + total.confirmed}
+          </div>
         )}
       </span>
     );
   }
 
   function activeFF() {
-    return (
-      <span>
-        {window.innerWidth <= 769 ? <div>&nbsp;</div> : ''}
-        <span>{total.active}</span>
-      </span>
-    );
+    return <span>{total.active}</span>;
   }
 
   function recoveredFF() {
     return (
       <span>
-        {total.deltarecovered !== 0 ? (
-          <span className="daily-data text-success">
-            <FontAwesomeIcon icon={faArrowUp} size="xs" />
-            {total.deltarecovered}
-          </span>
-        ) : window.innerWidth <= 769 ? (
-          <div>&nbsp;</div>
-        ) : (
-          ''
-        )}
         {window.innerWidth <= 769 ? (
-          <div> {total.recovered}</div>
+          <span>
+            {total.recovered}{' '}
+            <div className="daily-data text-success">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltarecovered}
+            </div>
+          </span>
         ) : (
-          <span>{'   ' + total.recovered}</span>
+          <div>
+            <span className="daily-data text-success">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltarecovered}
+            </span>
+            {'   ' + total.recovered}
+          </div>
         )}
       </span>
     );
   }
 
   function deceasedFF() {
-    // return total.deaths;
     return (
       <span>
-        <span className="daily-data text-muted">
-          <FontAwesomeIcon icon={faArrowUp} size="xs" />
-          {total.deltadeaths}
-        </span>
         {window.innerWidth <= 769 ? (
-          <div> {total.deaths}</div>
+          <span>
+            {total.deaths}{' '}
+            <div className="daily-data text-mute">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltadeaths}
+            </div>
+          </span>
         ) : (
-          <span>{' ' + total.deaths}</span>
+          <div>
+            <span className="daily-data text-mute">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltadeaths}
+            </span>
+            {'   ' + total.deaths}
+          </div>
         )}
       </span>
     );

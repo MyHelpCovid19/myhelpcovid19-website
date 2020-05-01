@@ -3,6 +3,8 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 
 import * as FirestoreService from '../../services/firebase';
+import gplay_icon from '../../assets/images/gplay_icon.png';
+import app_store_icon from '../../assets/images/app_store_icon.png';
 
 import './TableCovid19Helpline.scss';
 
@@ -114,7 +116,7 @@ const TableCovid19Helpline = (props) => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="https://www.mygov.in/sites/all/themes/mygov/images/gplay_icon.png"
+                  src={gplay_icon}
                   alt="Aarogya Setu on Play Store"
                   width="100%"
                 />
@@ -127,10 +129,7 @@ const TableCovid19Helpline = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="https://www.mygov.in/sites/all/themes/mygov/images/app_store_icon.png"
-                  alt="Aarogya Setu on App Store"
-                />
+                <img src={app_store_icon} alt="Aarogya Setu on App Store" />
               </a>
             </span>
           </div>

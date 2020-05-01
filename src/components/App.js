@@ -18,6 +18,7 @@ import Home from './home/Home';
 import Faqs from './faqs/Faqs';
 
 import './App.scss';
+
 import TableCovid19AllPatients from './tablecovid19/TableCovid19AllPatients';
 import LiveNewsChannels from './livenewschannels/LiveNewsChannels';
 import FreeCourses from './freecourses/FreeCourses';

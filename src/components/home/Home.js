@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import * as axios from 'axios';
 
 import { formatDate, formatDateAbsolute } from '../../helpers/date-utils';
 import { formatDistance } from 'date-fns';
-import TableCovid19 from '../tablecovid19/TableCovid19';
-import TotalCharts from '../totalcharts/TotalCharts';
-import TableCovid19Helpline from '../tablecovid19helpline/TableCovid19Helpline';
 
 import './Home.scss';
+
+const TableCovid19 = lazy(() => import('../tablecovid19/TableCovid19'));
+const TotalCharts = lazy(() => import('../totalcharts/TotalCharts'));
+const TableCovid19Helpline = lazy(() =>
+  import('../tablecovid19helpline/TableCovid19Helpline')
+);
 
 const Home = () => {
   const [states, setStates] = useState([]);
@@ -24,9 +27,9 @@ const Home = () => {
 
   const getStates = async () => {
     try {
-      const [response] = await Promise.all([
-        axios.get('https://api.covid19india.org/data.json'),
-      ]);
+      const response = await axios.get(
+        'https://api.covid19india.org/data.json'
+      );
 
       setStates(response.data.statewise);
       setTimeseries(response.data.cases_time_series);
@@ -41,8 +44,9 @@ const Home = () => {
     <div className="covid-home">
       <div className="home-left">
         <div>
-          <TotalCharts data={states[0]} timeseries={timeseries} />
-
+          <Suspense fallback={<div>Loading...</div>}>
+            <TotalCharts data={states[0]} timeseries={timeseries} />
+          </Suspense>
           <div className="text-muted">
             <small>
               <span>India covid19 list updated </span>
@@ -61,18 +65,19 @@ const Home = () => {
               </span>
             </small>
           </div>
-          {/* <TableCovid19
-            subdata={states}
-            timeseries={timeseries}
-            tablename={'State/UT'}
-          /> */}
-
-          {states.length > 0 ? <TableCovid19 subdata={states} /> : ''}
+          {states.length > 0 ? (
+            <Suspense fallback={<div>Loading...</div>}>
+              <TableCovid19 subdata={states} />
+            </Suspense>
+          ) : (
+            ''
+          )}
         </div>
       </div>
       <div className="home-right">
-        <TableCovid19Helpline />
-        {/* <PdfViewer /> */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <TableCovid19Helpline />
+        </Suspense>
       </div>
     </div>
   );

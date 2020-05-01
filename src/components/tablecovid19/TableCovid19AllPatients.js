@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import * as axios from 'axios';
+import axios from 'axios';
 
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
