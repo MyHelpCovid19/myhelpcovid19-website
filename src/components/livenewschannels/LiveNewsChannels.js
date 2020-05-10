@@ -28,7 +28,7 @@ class LiveNewsChannels extends Component {
 
       let channelsLinks = [];
       Object.entries(doc.data()).forEach(([key, value]) => {
-        channelsLinks.push({ name: key, data: value });
+        channelsLinks = [...channelsLinks, { name: key, data: value }];
       });
 
       let languages = [];
@@ -37,7 +37,7 @@ class LiveNewsChannels extends Component {
           label: channels.name,
           value: channels.name,
         };
-        languages.push(data);
+        languages = [...languages, data];
       });
 
       const currentDataIndex = channelsLinks.findIndex(

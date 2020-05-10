@@ -18,8 +18,9 @@ function FaqLayout(props) {
   useEffect(() => {
     let channelDetails = [];
 
-    Object.entries(props.faqdata).forEach(([key, value]) =>
-      channelDetails.push({ name: key, data: value })
+    Object.entries(props.faqdata).forEach(
+      ([key, value]) =>
+        (channelDetails = [...channelDetails, { name: key, data: value }])
     );
 
     setFaqs(channelDetails);

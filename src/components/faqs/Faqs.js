@@ -21,8 +21,8 @@ const Faqs = () => {
         if (doc.exists) {
           let faqs = [];
 
-          Object.entries(doc.data().name).forEach(([key, value]) =>
-            faqs.push({ name: key, data: value })
+          Object.entries(doc.data().name).forEach(
+            ([key, value]) => (faqs = [...faqs, { name: key, data: value }])
           );
 
           setFaqs(faqs);
@@ -35,16 +35,17 @@ const Faqs = () => {
 
   return (
     <Container className="faqs-home">
-      {faqs.length > 0 ? (
-        <div>
-          <div className="mb-2">FAQs About Us:</div>
-          <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        {faqs.length > 0 ? (
+          <div>
+            <div className="mb-2">FAQs About Us:</div>
+
             <FaqLayout faqdata={faqs} />
-          </Suspense>
-        </div>
-      ) : (
-        ''
-      )}
+          </div>
+        ) : (
+          ''
+        )}
+      </Suspense>
     </Container>
   );
 };

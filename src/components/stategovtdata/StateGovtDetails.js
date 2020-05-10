@@ -165,7 +165,6 @@ const StateGovtDetails = (props) => {
                 <h5>{testData[testData.length - 1].totaltested}</h5>
               </span>
               <div>
-                {console.log(testData[testData.length - 1].updatedon)}
                 <span>
                   {!isNaN(
                     parse(

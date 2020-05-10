@@ -24,7 +24,7 @@ const StateGovtTable = (props) => {
       map(props.subdata, (district) => {
         const helpline = get(props.helplines, district.district);
         district['helpline'] = helpline !== undefined ? helpline : '';
-        districts.push(district);
+        districts = [...districts, district];
       });
 
       setData(districts);

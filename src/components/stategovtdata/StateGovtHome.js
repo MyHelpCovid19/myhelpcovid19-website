@@ -61,12 +61,15 @@ const StateGovtHome = () => {
 
       Object.entries(stateDistrictWiseResponse[name].districtData).forEach(
         ([key, value]) => {
-          districtData.push({
-            id: idx,
-            district: key,
-            confirmed: value.confirmed,
-            deltaconfirmed: value.delta.confirmed,
-          });
+          districtData = [
+            ...districtData,
+            {
+              id: idx,
+              district: key,
+              confirmed: value.confirmed,
+              deltaconfirmed: value.delta.confirmed,
+            },
+          ];
           idx = idx + 1;
         }
       );

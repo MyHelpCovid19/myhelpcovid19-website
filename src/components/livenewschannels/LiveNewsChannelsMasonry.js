@@ -11,8 +11,9 @@ const LiveNewsChannelsMasonry = (props) => {
   useEffect(() => {
     let channelDetails = [];
 
-    Object.entries(props.data.data).forEach(([key, value]) =>
-      channelDetails.push({ name: key, data: value })
+    Object.entries(props.data.data).forEach(
+      ([key, value]) =>
+        (channelDetails = [...channelDetails, { name: key, data: value }])
     );
 
     setChannelDetails(channelDetails);

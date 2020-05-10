@@ -19,7 +19,10 @@ const TableCovid19Helpline = (props) => {
           let helplineData = [];
           let idx = 1;
           Object.entries(doc.data().numbers).forEach(([key, value]) => {
-            helplineData.push({ id: idx, name: key, data: value });
+            helplineData = [
+              ...helplineData,
+              { id: idx, name: key, data: value },
+            ];
             idx = idx + 1;
           });
 

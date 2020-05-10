@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,63 +13,46 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-import Header from './layouts/Header';
-import Home from './home/Home';
-import Faqs from './faqs/Faqs';
-
 import './App.scss';
 
-import TableCovid19AllPatients from './tablecovid19/TableCovid19AllPatients';
-import LiveNewsChannels from './livenewschannels/LiveNewsChannels';
-import FreeCourses from './freecourses/FreeCourses';
-import StateGovtHome from './stategovtdata/StateGovtHome';
+const Header = React.lazy(() => import('./layouts/Header'));
+const Home = React.lazy(() => import('./home/Home'));
+const Faqs = React.lazy(() => import('./faqs/Faqs'));
+const TableCovid19AllPatients = React.lazy(() =>
+  import('./tablecovid19/TableCovid19AllPatients')
+);
+const LiveNewsChannels = React.lazy(() =>
+  import('./livenewschannels/LiveNewsChannels')
+);
+const FreeCourses = React.lazy(() => import('./freecourses/FreeCourses'));
+const StateGovtHome = React.lazy(() => import('./stategovtdata/StateGovtHome'));
 
 const App = () => {
   return (
     <div className="App">
-      <Router>
-        <Route
-          render={({ location }) => (
-            <div>
-              <Header />
-              <Route exact path="/" render={() => <Redirect to="/IN" />} />
-              <Switch location={location}>
-                <Route
-                  exact
-                  path="/IN"
-                  render={(props) => <Home {...props} />}
-                />
-                <Route
-                  exact
-                  path="/faqs"
-                  render={(props) => <Faqs {...props} />}
-                />
-                <Route
-                  exact
-                  path="/IN/:stateCode"
-                  render={(props) => <StateGovtHome {...props} />}
-                />
-                <Route
-                  exact
-                  path="/freecourses"
-                  render={(props) => <FreeCourses {...props} />}
-                />
-                <Route
-                  exact
-                  path="/allpatients"
-                  render={(props) => <TableCovid19AllPatients {...props} />}
-                />
-                <Route
-                  exact
-                  path="/livenewschannels"
-                  render={(props) => <LiveNewsChannels {...props} />}
-                />
-                <Redirect to="/IN" />
-              </Switch>
-            </div>
-          )}
-        />
-      </Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to="/IN" />} />
+            <Route exact path="/IN" component={Home} />
+            <Route exact path="/faqs" component={Faqs} />
+            <Route exact path="/IN/:stateCode" component={StateGovtHome} />
+            <Route exact path="/freecourses" component={FreeCourses} />
+            <Route
+              exact
+              path="/allpatients"
+              component={TableCovid19AllPatients}
+            />
+            <Route
+              exact
+              path="/livenewschannels"
+              component={LiveNewsChannels}
+            />
+            <Redirect to="/IN" />
+          </Switch>
+        </Router>
+      </Suspense>
 
       {/* Site footer */}
       <footer className="site-footer">

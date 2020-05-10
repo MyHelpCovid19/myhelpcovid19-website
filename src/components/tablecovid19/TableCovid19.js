@@ -17,18 +17,21 @@ const TableCovid19 = (props) => {
 
     map(props.subdata, (subdata, idx) => {
       if (idx > 0) {
-        givenData.push({
-          id: idx,
-          state: subdata.state,
-          stateCode: subdata.statecode,
-          deltaconfirmed: parseInt(subdata.deltaconfirmed),
-          confirmed: parseInt(subdata.confirmed),
-          active: parseInt(subdata.active),
-          deltarecovered: parseInt(subdata.deltarecovered),
-          recovered: parseInt(subdata.recovered),
-          deltadeaths: parseInt(subdata.deltadeaths),
-          deaths: parseInt(subdata.deaths),
-        });
+        givenData = [
+          ...givenData,
+          {
+            id: idx,
+            state: subdata.state,
+            stateCode: subdata.statecode,
+            deltaconfirmed: parseInt(subdata.deltaconfirmed),
+            confirmed: parseInt(subdata.confirmed),
+            active: parseInt(subdata.active),
+            deltarecovered: parseInt(subdata.deltarecovered),
+            recovered: parseInt(subdata.recovered),
+            deltadeaths: parseInt(subdata.deltadeaths),
+            deaths: parseInt(subdata.deaths),
+          },
+        ];
       } else {
         setTotal({
           state: subdata.state,
