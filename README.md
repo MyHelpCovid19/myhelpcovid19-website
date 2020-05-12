@@ -1,8 +1,56 @@
+## Covid-19 Tracker India - MyHelpCovid19
+Covid-19 Tracker for India with helpline numbers and links to Govt. Websites - MyHelpCovid19
+
+[https://myhelpcovid19.info/](https://myhelpcovid19.info/)
+
+Now you can view District wise details of covid19 with helpline numbers in this website. 
+
+State Govt. links like below are updated:
+
+1. State govt. covid-19 website link, 
+
+2. Health bulletin releases website link for daily covid-19 cases updates,
+
+3. Covid-19 CM Relief Fund Donation website link,
+
+4. E-Pass Registration website link to apply for e-pass online,
+
+5. Volunteers Registration website link for state govt.
+
+Watch 108 Live TV NewsChannels in 13 Languages in India.
+
+##  Desktop Website
+<p align="center">
+  <img width="700" height="auto" src="https://user-images.githubusercontent.com/6865275/81535451-6f931680-9387-11ea-842c-fa3b4ffed74b.png">
+</p>
+
+##  Mobile Website
+<p align="center">
+  <span>
+  <img width="175" height="auto" src="https://user-images.githubusercontent.com/6865275/81535841-242d3800-9388-11ea-9800-2c5fd6ac248e.jpeg"> &nbsp; &nbsp;
+  </span>
+    <span>
+  <img width="175" height="auto" src="https://user-images.githubusercontent.com/6865275/81535847-25f6fb80-9388-11ea-86c5-4af4dd969c9e.jpeg"> &nbsp; &nbsp;
+  </span>
+  <span>
+    <img width="175" height="auto" src="https://user-images.githubusercontent.com/6865275/81535852-28f1ec00-9388-11ea-8a9e-91582aae7f38.jpeg"> &nbsp; &nbsp;
+  </span>
+  <span>
+    <img width="175" height="auto" src="https://user-images.githubusercontent.com/6865275/81535859-2abbaf80-9388-11ea-89a2-5f5ca9506686.jpeg">
+  </span>
+</p>
+
+
+## CONTRIBUTE
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm i`
+Initialize Project
 
 ### `npm start`
 
@@ -12,11 +60,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
@@ -25,44 +68,5 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contribution
+If you're new to contributing to Open Source on Github, [this guide](https://guides.github.com/activities/contributing-to-open-source/) can help you get started.
