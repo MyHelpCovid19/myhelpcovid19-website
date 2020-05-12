@@ -67,7 +67,12 @@ const StateGovtHome = () => {
               id: idx,
               district: key,
               confirmed: value.confirmed,
+              active: value.active,
+              deaths: value.deceased,
+              recovered: value.recovered,
               deltaconfirmed: value.delta.confirmed,
+              deltarecovered: value.delta.recovered,
+              deltadeaths: value.delta.deceased,
             },
           ];
           idx = idx + 1;
@@ -114,9 +119,9 @@ const StateGovtHome = () => {
           </Suspense>
           <div className="text-muted">
             <span>
-              <h3>{stateName}</h3>{' '}
+              <h3>{stateName}</h3>
               <span>
-                <small>covid19 list updated</small>
+                <small>Covid19 list updated </small>
               </span>
             </span>
             <small>
@@ -126,7 +131,7 @@ const StateGovtHome = () => {
                   : formatDistance(
                       new Date(formatDate(lastUpdated)),
                       new Date()
-                    ) + ' ago,'}
+                    ) + ' ago, '}
               </span>
               <span>
                 {isNaN(Date.parse(formatDate(lastUpdated)))

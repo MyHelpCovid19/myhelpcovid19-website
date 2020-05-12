@@ -65,10 +65,46 @@ const StateGovtTable = (props) => {
       footerAlign: 'right',
     },
     {
+      dataField: 'active',
+      text: 'Active',
+      sort: true,
+      headerFormatter: activeHF,
+      headerAlign: 'right',
+      formatter: activeCF,
+      footer: '',
+      footerFormatter: activeFF,
+      align: 'right',
+      footerAlign: 'right',
+    },
+    {
+      dataField: 'recovered',
+      text: 'Recovered',
+      sort: true,
+      headerFormatter: recoveredHF,
+      headerAlign: 'right',
+      formatter: recoveredCF,
+      footer: '',
+      footerFormatter: recoveredFF,
+      align: 'right',
+      footerAlign: 'right',
+    },
+    {
+      dataField: 'deaths',
+      text: 'Deceased',
+      sort: true,
+      headerFormatter: deceasedHF,
+      headerAlign: 'right',
+      formatter: deceasedCF,
+      footer: '',
+      footerFormatter: deceasedFF,
+      align: 'right',
+      footerAlign: 'right',
+    },
+    {
       dataField: 'helpline',
       text: 'Helpline',
       headerFormatter: helplineHF,
-      headerAlign: 'right',
+      headerAlign: 'left',
       align: 'right',
       footer: '',
       footerAlign: 'right',
@@ -91,6 +127,51 @@ const StateGovtTable = (props) => {
             ? 'C'
             : 'Cnfmd'
           : 'Confirmed'}
+      </abbr>
+    );
+  }
+
+  function activeHF() {
+    return (
+      <abbr
+        className={`${window.innerWidth <= 769 ? 'text-primary' : ''}`}
+        title="Active"
+      >
+        {window.innerWidth <= 769
+          ? window.innerWidth <= 375
+            ? 'A'
+            : 'Actv'
+          : 'Active'}
+      </abbr>
+    );
+  }
+
+  function recoveredHF() {
+    return (
+      <abbr
+        className={`${window.innerWidth <= 769 ? 'text-success' : ''}`}
+        title="Recovered"
+      >
+        {window.innerWidth <= 769
+          ? window.innerWidth <= 375
+            ? 'R'
+            : 'Rcvrd'
+          : 'Recovered'}
+      </abbr>
+    );
+  }
+
+  function deceasedHF() {
+    return (
+      <abbr
+        className={`${window.innerWidth <= 769 ? 'text-muted' : ''}`}
+        title="Deaths"
+      >
+        {window.innerWidth <= 769
+          ? window.innerWidth <= 375
+            ? 'D'
+            : 'Dcsd'
+          : 'Deceased'}
       </abbr>
     );
   }
@@ -140,6 +221,70 @@ const StateGovtTable = (props) => {
     );
   }
 
+  function activeCF(cell) {
+    return <span>{cell}</span>;
+  }
+
+  function recoveredCF(cell, row) {
+    return (
+      <span>
+        {row.deltarecovered !== 0 ? (
+          window.innerWidth <= 769 ? (
+            <div>
+              {cell}
+              <div className="daily-data text-success font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltarecovered}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <span className="daily-data text-success font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltarecovered}
+              </span>
+              <span> {cell}</span>
+            </div>
+          )
+        ) : (
+          <div>
+            <span>{cell}</span>
+          </div>
+        )}
+      </span>
+    );
+  }
+
+  function deceasedCF(cell, row) {
+    return (
+      <span>
+        {row.deltadeaths !== 0 ? (
+          window.innerWidth <= 769 ? (
+            <div>
+              {cell}
+              <div className="daily-data text-muted font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltadeaths}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <span className="daily-data text-muted font-weight-bold">
+                <FontAwesomeIcon icon={faArrowUp} size="xs" />
+                {row.deltadeaths}
+              </span>
+              <span> {cell}</span>
+            </div>
+          )
+        ) : (
+          <div>
+            <span>{cell}</span>
+          </div>
+        )}
+      </span>
+    );
+  }
+
   function confirmedFF() {
     return (
       <span>
@@ -158,6 +303,58 @@ const StateGovtTable = (props) => {
               {total.deltaconfirmed}
             </span>
             {'   ' + total.confirmed}
+          </div>
+        )}
+      </span>
+    );
+  }
+
+  function activeFF() {
+    return <span>{total.active}</span>;
+  }
+
+  function recoveredFF() {
+    return (
+      <span>
+        {window.innerWidth <= 769 ? (
+          <span>
+            {total.recovered}{' '}
+            <div className="daily-data text-success">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltarecovered}
+            </div>
+          </span>
+        ) : (
+          <div>
+            <span className="daily-data text-success">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltarecovered}
+            </span>
+            {'   ' + total.recovered}
+          </div>
+        )}
+      </span>
+    );
+  }
+
+  function deceasedFF() {
+    return (
+      <span>
+        {window.innerWidth <= 769 ? (
+          <span>
+            {total.deaths}{' '}
+            <div className="daily-data text-mute">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltadeaths}
+            </div>
+          </span>
+        ) : (
+          <div>
+            <span className="daily-data text-mute">
+              <FontAwesomeIcon icon={faArrowUp} size="xs" />
+              {total.deltadeaths}
+            </span>
+            {'   ' + total.deaths}
           </div>
         )}
       </span>

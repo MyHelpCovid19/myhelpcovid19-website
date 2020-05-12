@@ -49,14 +49,15 @@ const Home = () => {
           </Suspense>
           <div className="text-muted">
             <small>
-              <span>India covid19 list updated </span>
+              <h3>India</h3>
+              <span>Covid19 list updated </span>
               <span>
                 {isNaN(Date.parse(formatDate(lastUpdated)))
                   ? ''
                   : formatDistance(
                       new Date(formatDate(lastUpdated)),
                       new Date()
-                    ) + ' ago,'}
+                    ) + ' ago, '}
               </span>
               <span>
                 {isNaN(Date.parse(formatDate(lastUpdated)))
