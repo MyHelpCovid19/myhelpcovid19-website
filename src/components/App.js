@@ -21,6 +21,9 @@ const Faqs = React.lazy(() => import('./faqs/Faqs'));
 const TableCovid19AllPatients = React.lazy(() =>
   import('./tablecovid19/TableCovid19AllPatients')
 );
+const Covid19Essentials = React.lazy(() =>
+  import('./essentials/Covid19Essentials')
+);
 const LiveNewsChannels = React.lazy(() =>
   import('./livenewschannels/LiveNewsChannels')
 );
@@ -39,11 +42,7 @@ const App = () => {
             <Route exact path="/faqs" component={Faqs} />
             <Route exact path="/IN/:stateCode" component={StateGovtHome} />
             <Route exact path="/freecourses" component={FreeCourses} />
-            <Route
-              exact
-              path="/allpatients"
-              component={TableCovid19AllPatients}
-            />
+            <Route exact path="/essentials" component={Covid19Essentials} />
             <Route
               exact
               path="/livenewschannels"
@@ -191,6 +190,11 @@ const App = () => {
 
         <div className="container mb-3">
           <small>
+            <p>
+              If you click on the essential products and purchase, we would earn
+              a small commission from amazon. This will not in any way change
+              end product price.
+            </p>
             <div className="row">
               <div className="col-md-8 col-sm-6 col-xs-12">
                 <p className="copyright-text font-weight-bold">

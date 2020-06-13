@@ -11,6 +11,9 @@ const TotalCharts = lazy(() => import('../totalcharts/TotalCharts'));
 const TableCovid19Helpline = lazy(() =>
   import('../tablecovid19helpline/TableCovid19Helpline')
 );
+const Covid19EssentialBar = lazy(() =>
+  import('../essentials/Covid19EssentialBar')
+);
 
 const Home = () => {
   const [states, setStates] = useState([]);
@@ -41,44 +44,49 @@ const Home = () => {
   };
 
   return (
-    <div className="covid-home">
-      <div className="home-left">
-        <div>
-          <Suspense fallback={<div>Loading...</div>}>
-            <TotalCharts data={states[0]} timeseries={timeseries} />
-          </Suspense>
-          <div className="text-muted">
-            <small>
-              <h3>India</h3>
-              <span>Covid19 list updated </span>
-              <span>
-                {isNaN(Date.parse(formatDate(lastUpdated)))
-                  ? ''
-                  : formatDistance(
-                      new Date(formatDate(lastUpdated)),
-                      new Date()
-                    ) + ' ago, '}
-              </span>
-              <span>
-                {isNaN(Date.parse(formatDate(lastUpdated)))
-                  ? ''
-                  : formatDateAbsolute(lastUpdated)}
-              </span>
-            </small>
-          </div>
-          {states.length > 0 ? (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Covid19EssentialBar />
+      </Suspense>
+      <div className="covid-home">
+        <div className="home-left">
+          <div>
             <Suspense fallback={<div>Loading...</div>}>
-              <TableCovid19 subdata={states} />
+              <TotalCharts data={states[0]} timeseries={timeseries} />
             </Suspense>
-          ) : (
-            ''
-          )}
+            <div className="text-muted">
+              <small>
+                <h3>India</h3>
+                <span>Covid19 list updated </span>
+                <span>
+                  {isNaN(Date.parse(formatDate(lastUpdated)))
+                    ? ''
+                    : formatDistance(
+                        new Date(formatDate(lastUpdated)),
+                        new Date()
+                      ) + ' ago, '}
+                </span>
+                <span>
+                  {isNaN(Date.parse(formatDate(lastUpdated)))
+                    ? ''
+                    : formatDateAbsolute(lastUpdated)}
+                </span>
+              </small>
+            </div>
+            {states.length > 0 ? (
+              <Suspense fallback={<div>Loading...</div>}>
+                <TableCovid19 subdata={states} />
+              </Suspense>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
-      </div>
-      <div className="home-right">
-        <Suspense fallback={<div>Loading...</div>}>
-          <TableCovid19Helpline />
-        </Suspense>
+        <div className="home-right">
+          <Suspense fallback={<div>Loading...</div>}>
+            <TableCovid19Helpline />
+          </Suspense>
+        </div>
       </div>
     </div>
   );

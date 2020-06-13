@@ -6,6 +6,9 @@ import * as FirestoreService from '../../services/firebase';
 import './Faqs.scss';
 
 const FaqLayout = lazy(() => import('../faqlayout/FaqLayout'));
+const Covid19EssentialBar = lazy(() =>
+  import('../essentials/Covid19EssentialBar')
+);
 
 const Faqs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -35,6 +38,9 @@ const Faqs = () => {
 
   return (
     <Container className="faqs-home">
+      <Suspense fallback={<div>Loading...</div>}>
+        <Covid19EssentialBar />
+      </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
         {faqs.length > 0 ? (
           <div>

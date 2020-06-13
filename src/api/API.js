@@ -24,3 +24,13 @@ export const getCoursesAfter = async (pagesize, source, cursor) => {
 export const getStateData = async (stateCode) => {
   return await axios.get(apiUrl + '/state?code=' + stateCode);
 };
+
+export const getEssentials = (pagesize) => {
+  return axios.get(apiUrl + '/essentials?pagesize=' + pagesize);
+};
+
+export const getEssentialsAfter = async (pagesize, cursor) => {
+  return await axios.get(
+    apiUrl + '/essentials?pagesize=' + pagesize + '&cursor=' + cursor
+  );
+};
