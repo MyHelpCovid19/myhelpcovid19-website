@@ -18,12 +18,11 @@ import './App.scss';
 const Header = React.lazy(() => import('./layouts/Header'));
 const Home = React.lazy(() => import('./home/Home'));
 const Faqs = React.lazy(() => import('./faqs/Faqs'));
-const TableCovid19AllPatients = React.lazy(() =>
-  import('./tablecovid19/TableCovid19AllPatients')
-);
+
 const Covid19Essentials = React.lazy(() =>
   import('./essentials/Covid19Essentials')
 );
+
 const LiveNewsChannels = React.lazy(() =>
   import('./livenewschannels/LiveNewsChannels')
 );
@@ -41,13 +40,13 @@ const App = () => {
             <Route exact path="/IN" component={Home} />
             <Route exact path="/faqs" component={Faqs} />
             <Route exact path="/IN/:stateCode" component={StateGovtHome} />
-            <Route exact path="/freecourses" component={FreeCourses} />
+            {/* <Route exact path="/freecourses" component={FreeCourses} /> */}
             <Route exact path="/essentials" component={Covid19Essentials} />
-            <Route
+            {/* <Route
               exact
               path="/livenewschannels"
               component={LiveNewsChannels}
-            />
+            /> */}
             <Redirect to="/IN" />
           </Switch>
         </Router>
@@ -169,14 +168,19 @@ const App = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/allpatients/">Patients Data</a>
+                    <a href="/essentials/" className="pr-3">
+                      Covid-19 Essential Produts
+                    </a>
                   </li>
+                  {/* <li>
+                    <a href="/allpatients/">Patients Data</a>
+                  </li> 
                   <li>
                     <a href="/livenewschannels/">Live News Channels</a>
                   </li>
                   <li>
                     <a href="/freecourses/">Free Courses</a>
-                  </li>
+                  </li> */}
                   <li>
                     <a href="/faqs/" className="pr-5">
                       FAQs

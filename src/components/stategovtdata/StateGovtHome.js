@@ -93,7 +93,7 @@ const StateGovtHome = () => {
 
       setFetched(true);
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   };
 

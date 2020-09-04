@@ -1,3 +1,164 @@
+export const ESSENTIAL_BAR_DATA = {
+  essentials: [
+    {
+      seller: 'Amazon',
+      desc:
+        'It is a Kids Face Shield Isolation Mask. It is equipped with an elastic band and forehead sponge, easy to adjust and install for kids which makes it comfortable to wear a long time',
+      addedAt: 1592893001427,
+      url: 'https://amzn.to/2UkkS89',
+      offerprice: '₹ 897.00',
+      price: '₹ 399.00',
+      title: 'Kids Face Shield',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/control-d-kids-face-shield.jpg?alt=media&token=e29725a3-1622-4b02-92bb-0063f0eb02a9',
+      cursorTime: '1592893001000',
+    },
+    {
+      seller: 'Audible (an Amazon company)',
+      desc:
+        "With Audible audio books, you can listen to your favourite books, stories, talk shows, life lessons etc. This is useful for everyone from kids to older people. Why don't you give a try with free trial for a month?",
+      addedAt: 1592754735219,
+      url: 'https://amzn.to/2MgDfGA',
+      offerprice: 'Rs 199 per month',
+      price: 'Rs 199 per month',
+      title: 'Try Audible Today to listen to Audio Books',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/Amazon-Audible-Free-Trial.jpg?alt=media&token=41eacd9e-60ae-4fed-9c66-9485832e382c',
+      cursorTime: '1592754735000',
+    },
+    {
+      seller: 'amazon pantry',
+      desc:
+        'Lifebuoy Handwash makes hand washing quicker and more effective than ever before! Lifebuoy Total 10 Germ Protection Hand Wash contains our patented ingredient, Activ Natural Shield, ensuring your hands are clean and protected against germs.',
+      addedAt: 1591764673979,
+      url: 'https://amzn.to/3f5Wsav',
+      offerprice: '85.00',
+      price: '85.00',
+      title: 'Lifebuoy Germ Protection Handwash, 190 ml',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/lifebuoy-total-10-handwash-190ml.jpg?alt=media&token=7767d98d-b284-41d4-befa-91a4a7e3bacd',
+      cursorTime: '1591764673000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'Lifebuoy Handwash makes hand washing quicker and more effective than ever before! Lifebuoy Total 10 Germ Protection Hand Wash contains our patented ingredient, Activ Natural Shield, ensuring your hands are clean and protected against germs.',
+      addedAt: 1591764519815,
+      url: 'https://amzn.to/3dVCLSI',
+      offerprice: '199.00',
+      price: '169.00 ',
+      title: 'Lifebuoy Germ Protection Handwash, 580 ml',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/lifebuoy-total-10-handwash-580ml.jpg?alt=media&token=965fe6c6-7a42-4015-bba7-98aeccf1a848',
+      cursorTime: '1591764519000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'Boost the agents that give you hand immunity to keep fighting germs for upto 10 hours with Lifebuoy Immunity Boosting Sanitizer. It not only kills 99.99% germs instantly, but also boosts you immunity for upto 10 hours.',
+      addedAt: 1591719281110,
+      url: 'https://amzn.to/2ZPdpBp',
+      offerprice: '250.00',
+      price: '250.00 ',
+      title: 'Lifebuoy Hand Sanitizer 500ml, with Pump',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/lifebuoy-hand-sanitizer-with-pump-500ml.jpg?alt=media&token=974c8799-6afa-4e57-82b8-d8fb1d706e43',
+      cursorTime: '1591719281000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'UREVO Mask-3ply Disposable Face Masks Pack, Bacterial Filtration Effiency(BFE) ≥ 95%,Particle Filtration Effiency (PFE) ≥93.6%, CE & ISO & SITRA Certified (White, Pack of 50,Sealed box packing)',
+      addedAt: 1591718935716,
+      url: 'https://amzn.to/2Mis28k',
+      offerprice: '800.00',
+      price: '779.00 ',
+      title: 'UREVO Mask-3ply Disposable Face Masks Pack',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/urevo-3ply-face-mask.jpg?alt=media&token=436d3ac7-bdca-4ea0-85d1-ce6dc1d9ba63',
+      cursorTime: '1591718935000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'Boost the agents that give you hand immunity to keep fighting germs for upto 10 hours with Lifebuoy Immunity Boosting Sanitizer. It not only kills 99.99% germs instantly, but also boosts you immunity for upto 10 hours. ',
+      addedAt: 1591718637517,
+      url: 'https://amzn.to/2TP6FQx',
+      offerprice: '250.00',
+      price: '249.00 ',
+      title: 'Lifebuoy Hand Sanitizer 500ml, without pump',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/lifebuoy-hand-sanitizer-without-pump-500ml.jpg?alt=media&token=5026c914-835b-4363-90f9-d1a3a1926021',
+      cursorTime: '1591718637000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'Disposable nitrile gloves offer a supreme level of protection, better puncture security, and a lower attrition aspect for easier donning and doffing.',
+      addedAt: 1591717318711,
+      url: 'https://amzn.to/3c75zG0',
+      offerprice: '999.00',
+      price: '749.00 ',
+      title: 'Hand Pro Nitrile Powder-free Hand Gloves (M)',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/handpro-disposable-nitrile-large-gloves.jpg?alt=media&token=ba99c6eb-dc81-42ec-8c19-320d081a01c8',
+      cursorTime: '1591717318000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'TCL Infrared Thermometer JPD-FR202 measures the human body or an object temperature based on the infrared energy emitted by the forehead or an object (such as milk and water).',
+      addedAt: 1591713828417,
+      url: 'https://amzn.to/2TTyXJC',
+      offerprice: '9,999.00',
+      price: '3,999.00 ',
+      title: 'TCL Digital Infrared Forehead Thermometer',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/TCL-non-touch-digital-infrared-forehead-thermometer.jpg?alt=media&token=2e9ad7bf-b94f-4e3e-8cca-5474bee43ee3',
+      cursorTime: '1591713828000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'Boost the agents that give you hand immunity to keep fighting germs for upto 10 hours with Lifebuoy Immunity Boosting Sanitizer. It not only kills 99.99% germs instantly, but also boosts you immunity for upto 10 hours.',
+      addedAt: 1591713462908,
+      url: 'https://amzn.to/2UtSkZQ',
+      offerprice: '120.00',
+      price: '119.00',
+      title: 'Lifebuoy Total Hand Sanitizer, 250ml',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/lifebuoy-hand-sanitizer-250ml.jpg?alt=media&token=34085002-e8fc-4556-8a5d-58215d282725',
+      cursorTime: '1591713462000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'Solimo Hand Sanitizer Gel contain atleast 75% (v/v) Isopropyl Alcohol offering 99.9% protection against germs. This hand sanitizer gel does not contain harmful chemicals making it safe for everyday use.',
+      addedAt: 1591713239611,
+      url: 'https://amzn.to/2MKYIrE',
+      offerprice: '250.00',
+      price: '225.00',
+      title: 'Amazon Brand - Solimo Hand Sanitizer Gel',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/amazon-brand-solimo-hand-sanitizer.jpg?alt=media&token=429d845e-491b-4d45-9687-66341250ec88',
+      cursorTime: '1591713239000',
+    },
+    {
+      seller: 'amazon',
+      desc:
+        'Dabur, India’s most trusted Ayurvedic brand offers a new range of hand sanitizers - Dabur Sanitize - kills 99.9% germs without the use of soap & water.',
+      addedAt: 1591712212914,
+      url: 'https://amzn.to/3ewE0HO',
+      offerprice: '250.00',
+      price: '250.00',
+      title: 'Dabur Sanitize Hand Sanitizer',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/myhelpcovid19.appspot.com/o/dabur-sanitize-hand-sanitizer-500ml.jpg?alt=media&token=5f1a2898-2a8d-42a7-a01d-71017e0dd250',
+      cursorTime: '1591712212000',
+    },
+  ],
+};
+
 export const STATE_CODES = {
   AP: 'Andhra Pradesh',
   AR: 'Arunachal Pradesh',

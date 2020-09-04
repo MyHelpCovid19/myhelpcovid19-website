@@ -33,12 +33,12 @@ const Header = (props) => {
             <NavItem>
               <NavLink href="/essentials/">Covid-19 Essential Products</NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink href="/livenewschannels/">Live News Channels</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/freecourses/">Free Courses</NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <NavLink href="/faqs/">FAQs</NavLink>
             </NavItem>

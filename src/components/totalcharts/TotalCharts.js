@@ -119,7 +119,7 @@ const TotalCharts = (props) => {
                   ]
                 </small>
               </h6>
-              <h4>{confirmed}</h4>
+              <h5>{confirmed}</h5>
               <div>
                 <LineChart
                   width={60}
@@ -143,7 +143,7 @@ const TotalCharts = (props) => {
               <h6>
                 <small>&nbsp;</small>
               </h6>
-              <h4>{active}</h4>
+              <h5>{active}</h5>
               <div>
                 <LineChart
                   width={60}
@@ -175,7 +175,7 @@ const TotalCharts = (props) => {
                   ]
                 </small>
               </h6>
-              <h4>{recoveries}</h4>
+              <h5>{recoveries}</h5>
               <div>
                 <LineChart
                   width={60}
@@ -207,7 +207,7 @@ const TotalCharts = (props) => {
                   ]
                 </small>
               </h6>
-              <h4>{deaths}</h4>
+              <h5>{deaths}</h5>
               <div>
                 <LineChart
                   width={60}

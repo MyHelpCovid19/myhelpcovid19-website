@@ -6,6 +6,8 @@ import 'react-multi-carousel/lib/styles.css';
 
 import map from 'lodash';
 
+import { ESSENTIAL_BAR_DATA } from '../../constants/constants';
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -30,15 +32,7 @@ const Covid19EssentialBar = () => {
   const [essentials, setEssentials] = useState([]);
 
   useEffect(() => {
-    API.getEssentials(12)
-      .then((res) => {
-        if (res.status === 200) {
-          setEssentials(res.data.essentials);
-        } else {
-          setEssentials([]);
-        }
-      })
-      .catch((err) => {});
+    setEssentials(ESSENTIAL_BAR_DATA.essentials);
   }, []);
 
   return (
@@ -61,7 +55,7 @@ const Covid19EssentialBar = () => {
           <div key={idx} className="d-flex justify-content-center mx-2">
             <a
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
               href={item.url}
             >

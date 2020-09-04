@@ -25,12 +25,20 @@ export const getStateData = async (stateCode) => {
   return await axios.get(apiUrl + '/state?code=' + stateCode);
 };
 
-export const getEssentials = (pagesize) => {
-  return axios.get(apiUrl + '/essentials?pagesize=' + pagesize);
+export const getEssentials = (pagesize, categories) => {
+  return axios.get(
+    apiUrl + '/essentials?pagesize=' + pagesize + '&categories=' + categories
+  );
 };
 
-export const getEssentialsAfter = async (pagesize, cursor) => {
+export const getEssentialsAfter = async (pagesize, cursor, categories) => {
   return await axios.get(
-    apiUrl + '/essentials?pagesize=' + pagesize + '&cursor=' + cursor
+    apiUrl +
+      '/essentials?pagesize=' +
+      pagesize +
+      '&cursor=' +
+      cursor +
+      '&categories=' +
+      categories
   );
 };
