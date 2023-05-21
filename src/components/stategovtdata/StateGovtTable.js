@@ -144,6 +144,8 @@ const StateGovtTable = (props) => {
           : 'Active'}
       </abbr>
     );
+
+    return false;
   }
 
   function recoveredHF() {
