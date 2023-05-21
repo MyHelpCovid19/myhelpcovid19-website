@@ -44,7 +44,7 @@ const Faqs = () => {
       <Suspense fallback={<div>Loading...</div>}>
         {faqs.length > 0 ? (
           <div>
-            <div className="mb-2">FAQs About Us:</div>
+            <div className="mb-2">FAQs About Us: tes</div>
 
             <FaqLayout faqdata={faqs} />
           </div>
